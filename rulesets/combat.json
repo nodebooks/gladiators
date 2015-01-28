@@ -1,0 +1,9 @@
+{
+    "hitlocations": [{
+        "head":     {"hitchance": "5",  "dmgmultiplier": "1.5", "stun": true},
+        "arms":     {"hitchance": "30", "dmgmultiplier": "1.0", "stun": false},
+        "hands":    {"hitchance": "15", "dmgmultiplier": "1.1", "stun": false},
+        "torso":    {"hitchance": "15", "dmgmultiplier": "1.0", "stun": true},
+        "legs":     {"hitchance": "25", "dmgmultiplier": "0.8", "stun": false},
+        "feet":     {"hitchance": "10", "dmgmultiplier": "0.8", "stun": false}}]
+}

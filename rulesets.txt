@@ -1,0 +1,3 @@
+Stats are 
+
+Attacking: toHit = (nimbleness/15)*(weapon_toHit)

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="24" height="24" tilewidth="32" tileheight="32">
+ <properties>
+  <property name="name" value="gladiatorpit"/>
+ </properties>
+ <tileset firstgid="1" name="rpc_indoor_tileset" tilewidth="32" tileheight="32">
+  <image source="rpc_indoor_tileset.png" width="352" height="447"/>
+ </tileset>
+ <tileset firstgid="144" name="inventory" tilewidth="32" tileheight="32">
+  <image source="inventory.png" width="192" height="192"/>
+ </tileset>
+ <tileset firstgid="180" name="gas-valhalla" tilewidth="32" tileheight="32" spacing="2">
+  <image source="gas-valhalla.png" width="546" height="378"/>
+ </tileset>
+ <tileset firstgid="356" name="scrollsandblocks" tilewidth="32" tileheight="32">
+  <image source="scrollsandblocks.png" width="544" height="320"/>
+ </tileset>
+ <tileset firstgid="526" name="items_small" tilewidth="32" tileheight="32">
+  <image source="items_small.png" width="96" height="320"/>
+ </tileset>
+ <layer name="Ground" width="24" height="24">
+  <data encoding="base64" compression="zlib">
+   eJztlb0KwkAQhDdCxEa7eJV22unD+m7qA4iKhVb+VIqz4MKxsNzmyFml+MhwDB9huJAtEe0KsQdHcFIcqjy052z460EeXn9XiP8Bng6k9wYf8DKydMVfY7s72CTg3hCMwSSRuZvrn4F5Isf+xuFmuDcFK7BWOajzRr2/x8897/56H68/d/82/pL7652t3O9f/v4HI/f7/+f+W99CUPuPnP4LuosqzfL3FP+VfP4btSP2d03sL/n//QLjUDtI
+  </data>
+ </layer>
+ <layer name="Overlay" width="24" height="24" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYKA9KAHiMij7ESMDgwIZZoD0PGHELtcFxD1QNgsTA4M2GeaD9LAxYZd7QqQZxKpDV9sA9FcjEbgJh/8JgYlAfXJEqJtMgfmaZJjPzoidjc18YgAl7h+J5mszYWdTy3xiwUg1X4sJO5ta5hMLRqr5mkzY2dQyn1gw1M1fBNS3mAi8hEzzaQkAXxAooA==
+  </data>
+ </layer>
+</map>

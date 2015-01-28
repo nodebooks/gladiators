@@ -1,0 +1,144 @@
+{
+        "name":"robe",
+        "walk": {
+           "head": {
+                   "image":"HEAD_robe_hood.png",
+                   "z":3
+           },
+           "torso": {
+                "image":"TORSO_robe_shirt_brown.png",
+                 "z":3    
+           },
+           "belt":{
+                "image":"BELT_rope.png",
+                "z":4
+           },
+           "legs": {
+                "image":"LEGS_robe_skirt.png",
+                "z":3
+           },
+           "feet": null,
+           "hands" : null,
+           "arms": null
+        },
+        "thrust": {
+           "head": {
+                   "image":"HEAD_robe_hood.png",
+                   "z":3
+           },
+           "torso": {
+                "image":"TORSO_robe_shirt_brown.png",
+                 "z":3    
+           },
+           "belt":{
+                "image":"BELT_rope.png",
+                "z":3
+           },
+           "legs": {
+                "image":"LEGS_robe_skirt.png",
+                "z":3
+           },
+           "feet": {
+                "image":"FEET_shoes_brown.png",
+                "z":3
+           },
+           "hands" : null,
+           "arms": null
+        },
+        "slash": {
+           "head": {
+                   "image":"HEAD_robe_hood.png",
+                   "z":3
+           },
+           "torso": {
+                "image":"TORSO_robe_shirt_brown.png",
+                 "z":3    
+           },
+           "belt":{
+                "image":"BELT_rope.png",
+                "z":3
+           },
+           "legs": {
+                "image":"LEGS_robe_skirt.png",
+                "z":3
+           },
+           "feet": {
+                "image":"FEET_shoes_brown.png",
+                "z":3
+           },
+           "hands" : null,
+           "arms": null
+        },
+        "bow": {
+           "head": {
+                   "image":"HEAD_robe_hood.png",
+                   "z":3
+           },
+           "torso": {
+                "image":"TORSO_robe_shirt_brown.png",
+                 "z":3    
+           },
+           "belt":{
+                "image":"BELT_rope.png",
+                "z":3
+           },
+           "legs": {
+                "image":"LEGS_robe_skirt.png",
+                "z":3
+           },
+           "feet": {
+                "image":"FEET_shoes_brown.png",
+                "z":3
+           },
+           "hands" : null,
+           "arms": null
+        },
+        "hurt": {
+            "head": {
+                   "image":"HEAD_robe_hood.png",
+                   "z":3
+           },
+           "torso": {
+                "image":"TORSO_robe_shirt_brown.png",
+                 "z":3    
+           },
+           "belt":{
+                "image":"BELT_rope.png",
+                "z":3
+           },
+           "legs": {
+                "image":"LEGS_robe_skirt.png",
+                "z":3
+           },
+           "feet": {
+                "image":"FEET_shoes_brown.png",
+                "z":3
+           },
+           "hands" : null,
+           "arms": null
+        },
+        "spellcast": {
+           "head": {
+                   "image":"HEAD_robe_hood.png",
+                   "z":3
+           },
+           "torso": {
+                "image":"TORSO_robe_shirt_brown.png",
+                 "z":3    
+           },
+           "belt":{
+                "image":"BELT_rope.png",
+                "z":3
+           },
+           "legs": {
+                "image":"LEGS_robe_skirt.png",
+                "z":3
+           },
+           "feet": {
+                "image":"FEET_shoes_brown.png",
+                "z":3
+           },
+           "hands" : null,
+           "arms": null
+        }
+}

@@ -1,0 +1,140 @@
+** GAS fantasy edition **
+
+WHAT GAS IS?
+
+GAS fantasy edition is an Areena 5/6 style single and multiplayer
+manager game spiced with enhanced turn-based battles with time
+limits. Play against computer or other players online, train best
+gladiators and relive your most formidable battles in real-time!
+
+Gladiator team consists maximum of 8 gladiators. From those player can choose max 4 gladiators to battle. 
+Multiplayer game challenges are made between two players. When challenge is accepted, currently active battle 
+team is sent to fight on that instant from both parties.
+
+
+GAME STATE:
+
+MATCH_SYNC message provides a copy of current game state, a snapshot, 
+if you will. 
+
+History data consists of:
+
+1. base state in the beginning of battle, with tick number.
+2. individual commands with ticks when executed.
+
+A snapshot of game state will be taken and stored into battledb every X ticks.
+This snapshot is used to provide a faster access to current game state if 
+connection is lost for player in the middle of battle.
+
+
+SPELLS:
+
+Spells consume mana. Each spell drains specific amount of mana. Half
+of spell mana drain is consumed on preparation, and other half on casting.
+
+Spells require a preparation time, which is expressed in ticks. 
+Preparation time may be 0, which means that spell may be cast instantly.
+
+
+COORDINATE SYSTEM:
+
+Server holds grid-based coordinates  with floating-point
+values. Integer part contains tile coordinates. 
+Decimal part expresses object transition from one tile to another.
+Coordinates are converted into pixels by client and therere can be
+visualized in different manner by different client implementations.
+
+Example: pos : [1.05, 3.7]
+
+1.05 = tile x-coordinate 1, with 5% moved over to x-coordinate 2.
+3.7 = tile y-coordinate 3, with 70% moved over to y-coordinate 4.
+
+Client may choose how transition between tiles is visualized.
+
+
+
+SERVER:
+ - port 8080 used for websocket communication
+ - maple.js
+ - couchDB
+
+SERVER installation (Ubuntu Linux 12.04):
+
+** Execute the following commands from the command line
+sudo apt-get install npm
+sudo npm install pathfinding
+sudo npm install websocket
+
+** start gas server by entering its root folder and type
+node server/server.js
+
+CLIENT:
+
+- Game object must contain
+       Body entity (ie. background animation)
+       Head equipment entity (optional)
+       Torso entity (optional)
+       Belt entity (optional)
+       Hands entity (optional)
+       Legs entity (optional)
+       Feet entity (toes)
+       Weapon entity (optional)
+
+- Graphics layers (z-indices)
+
+  Name       Z-index    Desc
+  -----------------------------
+  Ground     0          Used for bottom layer in tile maps.
+  Overlay    1          Used for additional overlay in tile maps
+  Behind     2          For some special graphics behind game object (quiver, mostly)
+  Body       3          Basic body animation (human + skeleton)
+  Equipment  4          Additional armor or wear over the body layer.
+  Weapon     5          All weapons stored with this
+  Collision  6          Not rendered, shall contain only transparent tiles that help in tile
+                        mouse selection.
+  Mouse      7          For transparent collision layer over all other sprites in game object.
+
+  Front      8          Used for front layer elements in tile maps (appears over game objects)
+
+
+
+KNOWN ISSUES:
+
+    If Crafty is initialized and some component is hidden after that from page,
+    Crafty's mouse related coordinates get busted unless you do window resize.
+    I believe that this is browser-related and _needs_ to be taken into account
+    when designing a page.
+
+    Crafty entities must have .collision(polygon) defined for all entities that wish to use
+    SAT collision algorithm. Otherwise sprite MBR is used for _both_.
+
+ART:
+http://opengameart.org/content/knights-glove-mouse-cursor
+http://opengameart.org/content/powers-icons
+http://opengameart.org/content/modified-and-cliped-magic-skill-item-icons
+http://opengameart.org/content/extended-lpc-magic-pack
+http://opengameart.org/content/armor-icons-by-equipment-slot
+
+
+AUDIO
+
+All audio filenames will be in lowercase, without underscores and whitespaces.
+
+"Soliloquy", soliloguy.ogg
+Licenced under Creative Commons (http://creativecommons.org/licenses/by-sa/3.0/) By Matthew Pablo (http://www.matthewpablo.com)
+
+"Gran Batalla", granbatalla.ogg
+Licenced under Creative Commons (http://creativecommons.org/licenses/by-sa/3.0/) By Matthew Pablo (http://www.matthewpablo.com)
+
+Battle sounds
+
+http://opengameart.org/content/11-male-human-paindeath-sounds
+http://opengameart.org/content/15-monster-gruntpaindeath-sounds
+http://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes
+http://opengameart.org/content/35-wooden-crackshitsdestructions
+http://opengameart.org/content/37-hitspunches
+http://opengameart.org/content/battle-sound-effects
+http://opengameart.org/content/3-melee-sounds
+http://opengameart.org/content/2-wooden-squish-splatter-sequences
+http://opengameart.org/content/foot-walking-step-sounds-on-stone-water-snow-wood-and-dirt
+http://opengameart.org/content/footsteps-leather-cloth-armor

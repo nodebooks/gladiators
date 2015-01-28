@@ -1,0 +1,79 @@
+{
+        "_id": "kaensae",
+        "name": "Kaensae the Skeleton",
+        "team": "name of the team or empty string",
+        "race": "skeleton",
+        "age": "5",
+        "health": "20",
+        "nimbleness": "10",
+        "strength": "2",
+        "mana": "10",
+        "salary": "10",
+        "fights": "0",
+        "knockouts": "0",
+        "injured": "0",
+        "melee": [
+            {
+                "name": "astalo",
+                "damage": "2d6",
+                "description": "Hurts bad."
+            }
+        ],
+        "missile": [
+            {
+                "name": "shuriken",
+                "damage": "1d4",
+                "description": "Throw and try to hit the target."
+            }
+        ],
+        "spells": [
+            {
+                "name": "iputaspellonyou",
+                "damage": "1d4"
+            },
+            {
+                "name": "healwounds",
+                "damage": "-1d4"
+            }
+        ],
+        "armour": [
+            {
+                "head": "leather",
+                "icon": "leatherhelmet.png",
+                "description": "A fine piece of leather.",
+                "armourvalue": "1d2+1"
+            },
+            {
+                "torso": "chain",
+                "icon": "chainhauberk.png",
+                "description": "Elven crafted chain hauberk. (Do we have elves?)",
+                "armourvalue": "1d3+2"
+            },
+            {
+                "legs": "leather",
+                "icon": "lederhosen.png",
+                "description": "Ugly but useful. May contain sauerkraut.",
+                "armourvalue": "1d2"
+            },
+            {
+                "feet": "leather",
+                "icon": "leatherboots.png",
+                "description": "A brown pair of boots.",
+                "armourvalue": "1d2"
+            },
+            {
+                "hands": "",
+                "icon": "",
+                "description": "Bare hands.",
+                "armourvalue": "0"
+            },
+            {
+                "shield": "wood",
+                "icon": "roundwoodenshield.png",
+                "description": "A firm round wooden shield to cover your limbs and arteries.",
+                "toblock": "50%",
+                "armourvalue": "1d4"
+            }
+        ],
+        "icon": "skeleton.png"
+    }

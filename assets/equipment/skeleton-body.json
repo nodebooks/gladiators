@@ -1,0 +1,39 @@
+{ 
+    "name":"skeleton_body",
+    "walk": {
+        "body": {
+           "image":"BODY_skeleton.png",
+            "z": 2
+        }       
+    },  
+    "thrust": {
+        "body": {
+           "image": "BODY_skeleton.png",
+           "z": 2
+        }
+    },
+    "slash": {
+        "body": {
+           "image": "BODY_skeleton.png",
+           "z": 2
+        }          
+    },
+    "bow": {
+        "body": {
+           "image":"BODY_skeleton.png",
+           "z":2
+         }
+    },
+    "hurt": {
+        "body": {
+           "image":"BODY_skeleton.png",
+           "z":2
+        }
+    },
+    "spellcast": {
+        "body": {
+           "image":"BODY_skeleton.png",
+           "z":2
+        }
+    }
+}

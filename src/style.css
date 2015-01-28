@@ -1,0 +1,270 @@
+/* our font */
+@font-face {
+	font-family: "Fanwood";
+	src: url("../assets/fonts/Fanwood.otf");
+}
+@font-face {
+	font-family: "Fanwood-Italic";
+	src: url("../assets/fonts/Fanwood Italic.otf");
+}
+@font-face {
+	font-family: "Fanwood-Text";
+	src: url("../assets/fonts/Fanwood Text.otf");
+}
+@font-face {
+	font-family: "Fanwood-Text-Italic";
+	src: url("../assets/fonts/Fanwood Text Italic.otf");
+}
+
+* { margin:0; padding: 0;}
+body {
+    font-family: "Fanwood-Text";
+    font-size: 16px;
+    color: #fff;
+    background-image: url(../assets/gui/wood.png);
+    overflow: hidden;
+}
+h1 {
+    margin: 20px;
+    font-size: 40px;
+}
+
+.gas_main img.gas_preview {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+}
+
+.gas_overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: transparent url(../assets/gui/pattern.png) repeat-x bottom left;
+    opacity: 0.3;
+}
+
+.gas_loading {
+    position: fixed;
+    top: 10px;
+    right: 0px;
+    background: #000 url(../assets/gui/icons/loader.gif) no-repeat 10px 50%;
+    padding: 15px 40px 15px 60px;
+    opacity: 0.6;
+    -moz-box-shadow:0px 0px 2px #000;
+    -webkit-box-shadow:0px 0px 2px #000;
+    box-shadow:0px 0px 2px #000;;
+
+}
+
+ul.gas_navigation {
+    position: absolute;
+    width: 100%;
+    top: 140px;
+    left:-300px;
+    list-style: none;
+    
+}
+
+ul.gas_navigation li {
+    float: left;
+    clear: both;
+    margin-bottom: 8px;
+    position: relative;
+    width:100%;
+}
+
+ul.gas_navigation li span.gas_link {
+    background-color: #000;
+    float: left;
+    position: relative;
+    left:0px;
+
+    line-height: 50px;
+    padding: 0px 20px;
+}
+
+ul.gas_navigation li span.gas_arrow_down, ul.gas_navigation li span.gas_arrow_up {
+    position: absolute;
+    margin-left: 15px;
+    width: 40px;
+    height: 50px;
+    cursor: pointer;
+}
+
+ul.gas_navigation li span.gas_arrow_down {
+    background:#000 url(../assets/gui/icons/down.png) no-repeat center center;
+    float: right;
+    top: 0px;
+    right: -40px;
+}
+
+ul.gas_navigation li span.gas_arrow_up {
+    background:#000 url(../assets/gui/icons/up.png) no-repeat center center;
+    float: right;
+    top: 0px;
+    right: -40px;
+}
+
+.gas_wrapper {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 126px;
+    overflow-y: hidden;
+    top: 50px;
+    right: 0px;
+}
+
+.gas_thumbs {
+    width: 126px;
+    margin: 0;
+}
+
+.gas_thumbs img {
+    float:left;
+    margin: 3px 3px 0px 0px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.gas_about {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    opacity: 0.6;
+}
+
+.gas_subcontent {
+    background: #000;
+    padding: 30px;
+}
+/*  buttons  */
+A.button-smaller:hover {
+    background-position: 0px -83px;
+    color: white;
+    text-decoration: none;
+}
+A.button-smaller:visited {
+    background-position: 0px 0px;
+    color: white;
+    text-decoration: none;
+}
+A.button-smaller:active {
+    background-position: 0px -41px;
+    color: white;
+    text-decoration: none;
+}
+.button-smaller {
+    outline: none;
+	width:145px;
+	height:43px;
+
+	border:none;
+    line-height:43px;
+    display: block;
+	background-image: url('../assets/gui/buttons-smaller.png');
+    background-position: 0px 0px;
+    font-family: 'Fanwood';
+    font-size: 16pt;
+    text-shadow: 2px 2px 2px #000000;
+	text-align:center;
+	color:white;
+    text-decoration: none;
+}
+.btnp {
+    display: inline-block;
+    margin: 0 0 0 0;
+}
+.gas_battle {
+    bottom:-600px;
+    position:fixed;
+    right:50%;
+    margin-right: -200px;
+}
+.gas_battle_portrait {
+    padding: 20px;
+}
+.gas_challenges {
+    position: absolute;
+    overflow: hidden;
+    right:-200px;
+    width: 200px;
+    height:300px;
+    background-color: #000;
+    display:none;
+}
+.gas_arena {
+    width: 100%;
+    height: 100%;
+    z-index: 300;
+}
+.gas_arena div.left {
+    position: absolute;
+    top:0px;
+    left:0px;
+    width: 152px;
+    top: -600px;
+}
+.gas_arena div.left img {
+
+    margin-left: 20px;
+}
+.gas_arena div.right img {
+
+    margin-right: 20px;
+}
+.gas_arena div.right {
+    position: absolute;
+    top: -600px;
+    right:0px;
+    width: 122px;
+}
+
+.gas_arena div.center {
+    position: fixed;
+    right: 50%;
+    top: -600px;
+    width: 700px;
+    height: 512px;
+    background-color: #000;
+}
+div.action {
+    position:absolute;
+    z-index: 1;
+    height:52px;
+    width:410px;
+    left:-500px;
+    top:0px;
+}
+
+img.battle_action {
+    width: 70px;
+    height: 70px;
+}
+img.battle_action.melee {
+ 
+ 
+}
+img.battle_action.ranged {
+ 
+ 
+ 
+}
+img.battle_action.defend {
+ 
+}
+img.battle_action.cast {
+ 
+}
+
+img.desaturate { 
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+}

@@ -1,0 +1,20 @@
+
+WEAPONS/SKILLS
+ - Axe
+ - Sword
+ - Mace
+ - Spear
+ - Attack spell
+ - Healing spell
+
+ARMOR
+ - Soft leather
+ - Hard leather
+ - Chain
+ - Plate
+
+CHARACTER STATS
+ - Age
+ - Experience
+ - Luck/Fortune
+ - Health

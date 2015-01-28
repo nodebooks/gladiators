@@ -1,0 +1,57 @@
+{
+    "name":"armor_none",
+    "walk": {
+        "head": null,
+        "torso": null,
+        "belt": null,
+        "legs": null,
+        "hands": null,
+        "arms": null,
+        "feet": null
+    },
+    "thrust": {
+        "head": null,
+        "torso": null,
+        "belt": null,
+        "legs": null,
+        "hands": null,
+        "arms": null,
+        "feet": null
+    },
+    "slash": {
+        "head": null,
+        "torso": null,
+        "belt": null,
+        "legs": null,
+        "hands": null,
+        "arms": null,
+        "feet": null
+    },
+    "bow": {
+       "head": null,
+        "torso": null,
+        "belt": null,
+        "legs": null,
+         "hands": null,
+         "arms": null,
+         "feet": null
+    },
+    "hurt": {
+       "head": null,
+        "torso": null,
+        "belt": null,
+        "legs": null,
+         "hands": null,
+         "arms": null,
+         "feet": null
+    },
+    "spellcast": {
+      "head": null,
+        "torso": null,
+        "belt": null,
+        "legs": null,
+         "hands": null,
+         "arms": null,
+         "feet": null
+    }
+}

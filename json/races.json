@@ -1,0 +1,7 @@
+{
+	"_id": "races",
+	"baseattr": "15",
+	"race":[{"name": "human", "enabled": "true", "health": "2d6+8", "mana": "5d4", "nimbleness": "4d4+4", "strength": "4d4+4", "description": "Just a man.", "icon":"human.png"},
+			{"name": "skeleton", "enabled": "true", "health": "4d4+2", "mana": "2d6+8", "nimbleness": "4d4+2", "strength": "4d4+1", "description": "Re-animated corpse of a fallen gladiator.", "icon":"skeleton.png"}]
+
+}

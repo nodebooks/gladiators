@@ -1,0 +1,718 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <title>Galaxy All-Stars: Medieval Edition Login</title>
+ <link rel="stylesheet" href="style-login.css" type="text/css" />
+
+    <!-- Maple stuff -->
+    <script type="text/javascript" src="./lib/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="./lib/jquery-validation-1.9.0/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="./lib/jquery.cookie.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../server/maple/lib/bison.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../server/maple/lib/Class.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../server/maple/lib/Twist.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../server/maple/Maple.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../server/maple/Client.js"></script>
+    <script type="text/javascript" charset="utf-8" src="./lib/sha-hash.js"></script>
+    <script type="text/javascript" charset="utf-8" src="./lib/crafty.js"></script>
+    <script type="text/javascript" charset="utf-8" src="./lib/Tween.js"></script>
+    <script type="text/javascript" charset="utf-8" src="./lib/pathfinding-browser.js"></script>
+    <script type="text/javascript" charset="utf-8" src="./lib/Queue.compressed.js"></script>
+    <script type="text/javascript" charset="utf-8" src="./lib/underscore-min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="ape-component.js"></script>
+    <script type="text/javascript" charset="utf-8" src="effects.js"></script>
+    <script type="text/javascript" charset="utf-8" src="gas-client.js"></script>
+    <script type="text/javascript" charset="utf-8" src="./characters.js"></script>
+
+
+    <script type="text/javascript">
+    var type=10;
+    function setType(value)
+    {
+	    type = value;
+    }
+
+    </script>
+
+    <script type="text/javascript">
+     // ****************************************
+     // validator plugin settings: when submitted,
+     // we use GAS Maple server for authentication.
+     // ****************************************
+     $.validator.setDefaults({
+	 submitHandler: function() {
+      var hashPass = Sha1.hash($('#password').val());
+      var login = $('#username').val();
+       // set cookie for later use
+       $.cookie('gas-login', JSON.stringify({"username":login, "sessionid":hashPass}));
+       gas.send(type, [ JSON.stringify({"username":login, "password":hashPass}) ]);
+     }
+     });
+     // ****************************************
+     // validator plugin rules for login form
+     // ****************************************
+      $().ready(function(){
+
+	  // TODO: Create a custom (animated) cursor for "manager"
+	   //$('*').css('cursor','pointer');
+	   	$('*').css('cursor', 'url("../pics/gauntlet_cursor.png"), pointer');
+
+        $('#loginform').validate({
+         rules: {
+         	username: { required: true, minlength: 3, maxlength: 12 },
+         	password: { required: true, minlength: 4, maxlength: 12 }	// TODO: minlength 4 -> 6 before releasing the game
+         }});
+
+
+	$("#username").keypress(function(event) {
+		event.preventDefault;
+		var $th = $(this);
+		$th.val( $th.val().replace(/[^a-zA-Z0-9]/g, function(str) { return ''; } ) );
+
+	})
+
+	$("#username").keydown(function(event) {
+		event.preventDefault;
+		var $th = $(this);
+		$th.val( $th.val().replace(/[^a-zA-Z0-9]/g, function(str) { return ''; } ) );
+
+	})
+
+	$("#typearea").keydown(function(event) {
+		if(event.keyCode == 13) {
+			if($("#typearea").val() != "") {
+				//$("#chatbox").val($("#typearea").val());
+				user = JSON.parse($.cookie("gas-login")).username
+				var message = $("#typearea").val();
+
+				// TODO: "a scripting language", i.e. simple commands via command line
+				if($("#typearea").val() == "clear;") {
+					$("#chatbox").empty();
+				}
+				else if($("#typearea").val() == "help;") {
+	                  //$("#chatbox").append("<b>clear;</b> clear the chatbox<br /><b>help;</b> this help<br />");
+				}
+				else {
+					gas.send("CLIENT_CHAT_REQ", ['{"username": "' + user + '", "message": "' + message + '"}']);
+				}
+
+				$("#typearea").val("");
+		    }
+		}
+	});
+ })
+
+    </script>
+
+    <script type="text/javascript">
+
+      function logout()
+      {
+		 Crafty.audio.stop();
+		 Crafty.stop();
+		 location.reload(true);
+      }
+
+      function displayLogin()
+      {
+           g_smokeScreen.attr({changeToScene:"loadingView"}).tween({alpha:1.0},50);
+
+           $('#login').fadeOut(500, function(){
+			 $('#login').empty();
+			 $('#login').html('<div id="welcome_title">Enjoy your stay, '+JSON.parse($.cookie("gas-login")).username+'! <p class="btnp"><a href="#" class="button" id="logout" onclick="logout();"> &gt;&gt;&nbsp;&nbsp;Logout</a></p>');
+			 $('#login').fadeIn('fast', function(){
+					  //Crafty.scene("loadingView");
+			 });
+           });
+      }
+
+      function getWindowWidth() {
+      var myWidth = 0;
+      if( typeof( window.innerWidth ) == 'number' ) {
+      //Non-IE
+
+      myWidth = window.innerWidth;
+
+      } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+
+      //IE 6+ in 'standards compliant mode'
+
+      myWidth = document.documentElement.clientWidth;
+
+      } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+
+      //IE 4 compatible
+
+      myWidth = document.body.clientWidth;
+
+      }
+
+      return myWidth;
+
+      }
+
+      var chatEnabled = false;
+      function toggleChat()
+      {
+
+         var curVal = parseInt($("#chatbox-messages").css('top'));
+         var height = parseInt($("#chatbox-messages").css('height'));
+         var width = parseInt($("#chatbox-messages").css('width'));
+
+         var destVal = (curVal < 0) ? 100 : -height;
+         var x = (getWindowWidth() - width)*0.5;
+
+         $("#chatbox-messages").css("display","block");
+         var param = {val: curVal};
+         var tween = new TWEEN.Tween(param)
+                    .to({val:destVal},100)
+                    .delay(100)
+					.easing(TWEEN.Easing.Elastic.Out)
+                    .onUpdate(function(){
+                    $("#chatbox-messages").css("top",param.val);
+                    $("#chatbox-messages").css("margin-left",x);
+                    }).start();
+      }
+
+      function toggleChallenges()
+      {
+		var curVal = parseInt($("#challenges").css('left'));
+		var width = parseInt($("#challenges").css('width'));
+
+		var destVal = (curVal < 0) ? 0 : 20-width;
+
+		g_cssZVal += 1;
+
+		var param = {val: curVal};
+		var tween = new TWEEN.Tween(param)
+				   .to({val:destVal},100)
+				   .delay(100)
+				   .onUpdate(function(){
+					 $("#challenges").css("top","20px");
+					 $("#challenges").css("left",param.val);
+					 $("#challenges").css("z-index",g_cssZVal);
+				   }).start();
+      }
+
+      function toggleGladiatorInfo()
+      {
+		var curVal = parseInt($("#thumbContainer").css('left'));
+		var width = parseInt($("#thumbContainer").css('width'));
+
+		var destVal = (curVal < 0) ? 0 : 20-width;
+
+		g_cssZVal += 1;
+
+		var param = {val: curVal};
+		var tween = new TWEEN.Tween(param)
+				   .to({val:destVal},1000)
+				   .delay(100)
+                   .easing(TWEEN.Easing.Elastic.Out)
+				   .onUpdate(function(){
+					 $("#thumbContainer").css("left",param.val);
+				   }).start();
+      }
+
+      function craftyToggle()
+      {
+         var curVal = parseInt($("#cr-stage").css('left'));
+         var width = parseInt($("#cr-stage").css('width'));
+
+         var destVal = (curVal < 0) ? 0 : -width;
+
+         var param = {val: curVal};
+         var tween = new TWEEN.Tween(param)
+                    .to({val:destVal},1000)
+                    .delay(100)
+                    .easing(TWEEN.Easing.Elastic.Out)
+                    .onUpdate(function(){
+                      $("#cr-stage").css("left",param.val);
+
+                    }).start();
+               window.setTimeout(function(){
+
+                  Crafty.viewport.reload();
+
+                }, 1000);
+      }
+
+      function showGladiatorInfo()
+      {
+		var curVal = parseInt($("#gladiatorinfo").css('left'));
+		var width = parseInt($("#gladiatorinfo").css('width'));
+
+		var destVal = 0;
+
+		g_cssZVal += 1;
+
+		var param = {val: curVal};
+		var tween = new TWEEN.Tween(param)
+				   .to({val:destVal},100)
+				   .delay(100)
+				   .onUpdate(function(){
+					 $("#gladiatorinfo").css("top","340px");
+					 $("#gladiatorinfo").css("left",param.val);
+					 $("#gladiatorinfo").css("z-index",g_cssZVal);
+				   }).start();
+      }
+
+	  function updateZzz(element) {
+		 element.css("z-index",++g_cssZVal);	// What would be the upper limit?
+	  }
+
+    </script>
+</head>
+
+<body>
+	
+  <div id="nav">
+  </div>
+    <div id="chatbox-messages">
+    </div>
+    <div id="login-nav">
+
+    </div>
+    <div id="login">
+      <form method="post" id="loginform" action="#">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" class="required" maxlength="12"/>
+  	    <label for="password">Password</label>
+	    <input name="password" type="password" id="password" class="required" maxlength="12" />
+
+        <p class="btnp"><a href="#" class="button" id="loginbtn" title="Log in to an existing account" onclick="setType('LOGIN_REQ');$('#loginform').submit();"> &gt;&gt;&nbsp;&nbsp;Login</a></p>
+        <p class="btnp"><a href="#" class="button" id="createbtn" title="Create new team" onclick="setType('CREATE_USER_REQ');$('#loginform').submit();"> &gt;&gt;&nbsp;&nbsp;Create</a></p>
+      </form>
+  </div>
+
+  <div id="ranking">
+  </div>
+
+
+  <div id="chatbox">
+    Chat: <input type="text" id="typearea" value="" onfocus="chatEnabled = true;" onblur="chatEnabled = false;" />
+
+    <p class="btnp"><a href="#" class="button" id="togglechat" onclick="toggleChat();"> Chat window </a></p>
+    <p class="btnp"><a href="#" class="button" id="togglechallenger" onclick="toggleChallenges();"> Challenges </a></p>
+	<p class="btnp"><a href="#" class="button" id="togglegladiatorinfo" onclick="toggleGladiatorInfo();"> Gladiator </a></p>
+  </div>
+  <script>
+	Crafty.init(800, 736);
+//    Crafty.background('#4d5155');
+    Crafty.background("url('../assets/gui/paper.png");
+    // Connect to GAS server
+
+    var gas = new GAS();
+    Crafty.e("2D, DOM, Persist")
+       .bind("EnterFrame", function(){TWEEN.update();})
+       .bind("KeyDown", function(e){
+        if ( chatEnabled ){
+          //$("#typearea").val( e.key);
+          //console.log(e.key);
+       }
+    });
+
+    // create default smokescreen
+     g_smokeScreen = Crafty.e("2D, DOM, Tween, Persist, Color")
+       .attr({x:0, y:0, w:800, h:800, alpha:0.0, z:10})
+       .color("#000000")
+
+       .bind("TweenEnd", function(){
+         console.log("Smokescreen faded", g_smokeScreen.alpha == 0.0 ? "out" : "in");
+         if ( g_smokeScreen.alpha == 1.0 )
+            Crafty.scene(g_smokeScreen.changeToScene);
+        });
+
+    //gas.connect('gas.dy.fi', 8080);
+    gas.connect('localhost', 8080);
+    Crafty.scene("managerView", showManagerView, hideManagerView);
+    Crafty.scene("gladiatorView", showGladiatorView, hideGladiatorView);
+    Crafty.scene("arenaView", showArenaView, hideArenaView);
+    Crafty.scene("gladiatorPitView", showGladiatorPitView, hideGladiatorPitView);
+    Crafty.scene("loginView", showLoginView, hideLoginView);
+
+    var assetArray = [];
+    GetLoadableAssetsFromTileMap( 'test.json',      assetArray);
+    GetLoadableAssetsFromTileMap( 'inventory.json', assetArray);
+    GetLoadableAssetsFromTileMap( 'arena.json',     assetArray);
+    PreloadAnimation("skeleton-body.json");
+    PreloadAnimation("human-body.json");
+    PreloadAnimation("robe.json");
+    PreloadAnimation("leather-armor.json");
+    PreloadAnimation("plate-armor.json");
+    PreloadAnimation("chain-armor.json");
+    PreloadAnimation("no-armor.json");
+    PreloadAnimation("long-spear.json");
+
+
+    Crafty.scene("loadingView", function(){
+       console.log('Loading');
+       for( var i=0;i< assetArray.length;i++)
+       {
+          console.log('About to load'+assetArray[i]);
+       }
+       Crafty.load(assetArray, function(e){
+                       console.log('Done loading, starting manager!');
+                       Crafty.scene("managerView"); });
+
+       Crafty.e("2D, DOM, Text").attr({ w: 100, h: 20, x: 150, y: 120 })
+      .text("Loading")
+      .css({ "text-align": "center" });
+    });
+    Crafty.scene("loginView");
+
+
+    if ( $.cookie("gas-login")) {
+		var loginstring = {
+		'username': JSON.parse($.cookie("gas-login")).username,
+		'sessionid': JSON.parse($.cookie("gas-login")).sessionid
+		}
+        gas.send('LOGIN_REQ', [ JSON.stringify(loginstring) ]);
+	}
+
+  </script>
+
+  <div id="interaction" class="container"></div>
+  <p class="btnp"><a href="#" class="button" onclick="craftyToggle();">Swap Crafty</a></p>
+
+  <div id="challenges" ondblclick="toggleChallenges();" ></div>
+  <div id="gladiatorinfo" class="container"></div>
+
+<!-- some test code for gladiator elements  -->
+  <div class="padding">
+  <div class="gladiatorshowcase">
+    	<table >
+        <tr>
+          <td><img class="border-top-left" src="../assets/corner-top-left.png" ></td>
+          <td colspan="2"><img class="border-top" src="../assets/bar.png" width="200" height="20"></td>
+          <td><img class="border-top-right" src="../assets/corner-top-right.png" ></td>
+        </tr>
+        <tr>
+          <td rowspan="12"><img class="border-left" src="../assets/bar-v.png" width="22" height="300"></td>
+          <td colspan="2"> <p class="btnp"><a href="#" class="button-smaller" onclick="">Retire</a></p></td>
+
+          <td rowspan="12"><img class="border-right" src="../assets/bar-v.png" width="22" height="300"></td>
+        </tr>
+        <tr><td>Name:</td><td>gladiator.name</td><td></td></tr>
+        <tr><td>Age:</td><td><div style="padding:2px;background:#CCC;">
+  <div style="width:25%;background:#aF4;text-align:center;">
+    <span>25%</span>
+  </div>
+</div></td></tr>
+        <tr><td>Health:</td><td><meter value="12" max="35"></meter></td></tr>
+        <tr><td>Nimbleness:</td><td><meter value="12" max="35"></meter></td></tr>
+        <tr><td>Strength:</td><td><meter value="1" max="35"></meter></td></tr>
+        <tr><td>Mana:</td><td><meter value="2" max="35"></meter></td></tr>
+        <tr><td>Salary:</td><td><meter value="3" max="150"></meter></td></tr>
+        <tr><td>Fights:</td><td><meter value="4" max="100"></meter></td></tr>
+        <tr><td>Knockouts:</td><td><meter value="5" max="100"></meter></td></tr>
+        <tr><td>Injured:</td><td><meter value="6" max="15"></meter></td></tr>
+        <tr><td colspan="2"><p class="btnp"><a href="#" class="button-smaller" onclick="">Equip</a></p></td></tr>
+        <tr>
+          <td><img class="border-bottom-left" src="../assets/corner-bottom-left.png" ></td>
+          <td colspan="2"><img class="border-bottom" src="../assets/bar.png" width="200" height="20"></td>
+          <td><img class="border-bottom-right" src="../assets/corner-bottom-right.png" ></td>
+        </tr>
+		</table>
+    
+  </div>
+  </div>
+<!-- -->
+  <div class="padding">
+  <div class="gladiatorshowcase">
+
+    	<table >
+        <tr>
+          <td><img class="border-top-left" src="../assets/corner-top-left.png" ></td>
+          <td colspan="2"><img class="border-top" src="../assets/bar.png" width="200" height="20"></td>
+          <td><img class="border-top-right" src="../assets/corner-top-right.png" ></td>
+        </tr>
+        <tr>
+          <td rowspan="12"><img class="border-left" src="../assets/bar-v.png" width="22" height="300"></td>
+          <td colspan="2"> <p class="btnp"><a href="#" class="button-smaller" onclick="">Retire</a></p></td>
+
+          <td rowspan="12"><img class="border-right" src="../assets/bar-v.png" width="22" height="300"></td>
+        </tr>
+        <tr><td>Name:</td><td>gladiator.name</td><td></td></tr>
+        <tr><td>Age:</td><td><div style="padding:2px;background:#CCC;">
+  <div style="width:25%;background:#aF4;text-align:center;">
+    <span>25%</span>
+  </div>
+</div></td></tr>
+        <tr><td>Health:</td><td><meter value="12" max="35"></meter></td></tr>
+        <tr><td>Nimbleness:</td><td><meter value="12" max="35"></meter></td></tr>
+        <tr><td>Strength:</td><td><meter value="1" max="35"></meter></td></tr>
+        <tr><td>Mana:</td><td><meter value="2" max="35"></meter></td></tr>
+        <tr><td>Salary:</td><td><meter value="3" max="150"></meter></td></tr>
+        <tr><td>Fights:</td><td><meter value="4" max="100"></meter></td></tr>
+        <tr><td>Knockouts:</td><td><meter value="5" max="100"></meter></td></tr>
+        <tr><td>Injured:</td><td><meter value="6" max="15"></meter></td></tr>
+        <tr><td colspan="2"><p class="btnp"><a href="#" class="button-smaller" onclick="">Equip</a></p></td></tr>
+        <tr>
+          <td><img class="border-bottom-left" src="../assets/corner-bottom-left.png" ></td>
+          <td colspan="2"><img class="border-bottom" src="../assets/bar.png" width="200" height="20"></td>
+          <td><img class="border-bottom-right" src="../assets/corner-bottom-right.png" ></td>
+        </tr>
+		</table>
+    
+  </div>
+  </div>
+
+<div id="thumbContainer">
+			<div id="thumbScroller">
+				<div class="container">
+
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/Aileen.png" alt="" class="thumb" /></a>Oogliv</div></div>
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/Alec.png" alt="" class="thumb" /></a></div></div>
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/Andrew.png" alt="" class="thumb" /></a></div></div>
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/Ashita.png" alt="" class="thumb" /></a></div></div>
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/Bjin.png" alt="" class="thumb" /></a></div></div>
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/Branko2.png" alt="" class="thumb" /></a></div></div>
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/Branko.png" alt="" class="thumb" /></a></div></div>
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/BrendanPortrait.png" alt="" class="thumb" /></a></div></div>
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/FlareFemaleHero1.png" alt="" class="thumb" /></a></div></div>
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/FlareFemaleHero2.png" alt="" class="thumb" /></a></div></div>
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/FlareFemaleHero3.png" alt="" class="thumb" /></a></div></div>
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/FlareMaleHero1.png" alt="" class="thumb" /></a></div></div>
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/FlareMaleHero2.png" alt="" class="thumb" /></a></div></div>
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/FlareMaleHero3.png" alt="" class="thumb" /></a></div></div>
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/Florent.png" alt="" class="thumb" /></a></div></div>
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/FredG.png" alt="" class="thumb" /></a></div></div>
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/Frieda.png" alt="" class="thumb" /></a></div></div>
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/Joi.png" alt="" class="thumb" /></a></div></div>
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/Jonas2.png" alt="" class="thumb" /></a></div></div>
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/Jonas.png" alt="" class="thumb" /></a></div></div>
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/Jordan.png" alt="" class="thumb" /></a></div></div>
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/JordanPortrait.png" alt="" class="thumb" /></a></div></div>
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/Kain.png" alt="" class="thumb" /></a></div></div>
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/LauraPortrait.png" alt="" class="thumb" /></a></div></div>
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/Leslie.png" alt="" class="thumb" /></a></div></div>
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/lessig.png" alt="" class="thumb" /></a></div></div>
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/Linksvayer.png" alt="" class="thumb" /></a></div></div>
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/Marcos.png" alt="" class="thumb" /></a></div></div>
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/Markus.png" alt="" class="thumb" /></a></div></div>
+                  <div class="content"><div><a href="#"><img src="../assets/portrait/Maxime.png" alt="" class="thumb" /></a></div></div>
+
+					
+				</div>
+			</div>
+		</div>
+  <!-- The JavaScript -->
+        <script type="text/javascript" src="./lib/jquery.1.7.2.js"></script>
+		<script type="text/javascript" src="./lib/jquery.easing.1.3.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				//index of current item
+				var current				= 0;
+				//speeds / ease type for animations
+				var fadeSpeed			= 400;
+				var animSpeed			= 600;
+				var easeType			= 'easeOutCirc';
+				//caching
+				var $thumbScroller		= $('#thumbScroller');
+				var $scrollerContainer	= $thumbScroller.find('.container');
+				var $scrollerContent	= $thumbScroller.find('.content');
+				var $pg_title 			= $('#pg_title');
+				var $pg_preview 		= $('#pg_preview');
+				var $pg_desc1 			= $('#pg_desc1');
+				var $pg_desc2 			= $('#pg_desc2');
+				var $overlay			= $('#overlay');
+				//number of items
+				var scrollerContentCnt  = $scrollerContent.length;
+				var sliderHeight		= $(window).height();
+				//we will store the total height
+				//of the scroller container in this variable
+				var totalContent		= 0;
+				//one items height
+				var itemHeight			= 0;
+				
+				//First let's create the scrollable container,
+				//after all its images are loaded
+				var cnt		= 0;
+				$thumbScroller.find('img').each(function(){
+					var $img 	= $(this);
+					$('<img/>').load(function(){
+						++cnt;
+						if(cnt == scrollerContentCnt){
+							//one items height
+							itemHeight = $thumbScroller.find('.content:first').height();
+							buildScrollableItems();
+							//show the scrollable container
+							$thumbScroller.stop().animate({'left':'0px'},animSpeed);
+						}
+					}).attr('src',$img.attr('src'));
+				});
+				
+				//when we click an item from the scrollable container
+				//we want to display the items content
+				//we use the index of the item in the scrollable container
+				//to know which title / image / descriptions we will show
+				$scrollerContent.bind('click',function(e){
+                    console.log('Clicked');
+					var $this 				= $(this);
+					
+					var idx 				= $this.index();
+					//if we click on the one shown then return
+					if(current==idx) return;
+					
+					//if the current image is enlarged,
+					//then we will remove it but before
+					//we animate it just like we would do with the thumb
+					var $pg_large			= $('#pg_large');
+					if($pg_large.length > 0){
+						$pg_large.animate({'left':'350px','opacity':'0'},animSpeed,function(){
+							$pg_large.remove();
+						});
+					}
+					
+					//get the current and clicked items elements
+					var $currentTitle 		= $pg_title.find('h1:nth-child('+(current+1)+')');
+					var $nextTitle 			= $pg_title.find('h1:nth-child('+(idx+1)+')');
+					var $currentThumb		= $pg_preview.find('img.pg_thumb:eq('+current+')');
+					var $nextThumb			= $pg_preview.find('img.pg_thumb:eq('+idx+')');
+					var $currentDesc1 		= $pg_desc1.find('div:nth-child('+(current+1)+')');
+					var $nextDesc1 			= $pg_desc1.find('div:nth-child('+(idx+1)+')');
+					var $currentDesc2 		= $pg_desc2.find('div:nth-child('+(current+1)+')');
+					var $nextDesc2 			= $pg_desc2.find('div:nth-child('+(idx+1)+')');
+					
+					//the new current is now the index of the clicked scrollable item
+					current		 			= idx;
+					
+					//animate the current title up,
+					//hide it, and animate the next one down
+					$currentTitle.stop().animate({'top':'-50px'},animSpeed,function(){
+						$(this).hide();
+						$nextTitle.show().stop().animate({'top':'25px'},animSpeed);
+					});
+					
+					//show the next image,
+					//animate the current to the left and fade it out
+					//so that the next gets visible
+					$nextThumb.show();
+					$currentThumb.stop().animate({'left': '350px','opacity':'0'},animSpeed,function(){
+						$(this).hide().css({
+							'left'		: '250px',
+							'opacity'	: 1,
+							'z-index'	: 1
+						});
+						$nextThumb.css({'z-index':9999});
+					});
+					
+					//animate both current descriptions left / right and fade them out
+					//fade in and animate the next ones right / left
+					$currentDesc1.stop().animate({'left':'205px','opacity':'0'},animSpeed,function(){
+						$(this).hide();
+						$nextDesc1.show().stop().animate({'left':'250px','opacity':'1'},animSpeed);
+					});
+					$currentDesc2.stop().animate({'left':'295px','opacity':'0'},animSpeed,function(){
+						$(this).hide();
+						$nextDesc2.show().stop().animate({'left':'250px','opacity':'1'},animSpeed);
+					});
+					e.preventDefault();
+				});
+				
+				//when we click a thumb, the thumb gets enlarged,
+				//to the sizes of the large image (fixed values).
+				//then we load the large image, and insert it after
+				//the thumb. After that we hide the thumb so that
+				//the large one gets displayed
+				$pg_preview.find('.pg_thumb').bind('click',showLargeImage);
+				
+				//enlarges the thumb
+				function showLargeImage(){
+					//if theres a large one remove
+					$('#pg_large').remove();
+					var $thumb 		= $(this);
+					$thumb.unbind('click');
+					var large_src 	= $thumb.attr('alt');
+
+					$overlay.fadeIn(200);
+					//animate width to 600px,height to 500px
+					$thumb.stop().animate({
+						'width'	: '600px',
+						'height': '500px'
+					},500,function(){
+						$('<img id="pg_large"/>').load(function(){
+							var $largeImg = $(this);
+							$largeImg.insertAfter($thumb).show();
+							$thumb.hide().css({
+								'left'		: '250px',
+								'opacity'	: 1,
+								'z-index'	: 1,
+								'width'		: '360px',
+								'height'	: '300px'
+							});
+							//when we click the large image
+							//we revert the animation
+							$largeImg.bind('click',function(){
+								$thumb.show();
+								$overlay.fadeOut(200);
+								$(this).stop().animate({
+									'width'	: '360px',
+									'height': '300px'
+								},500,function(){
+									$(this).remove();
+									$thumb.css({'z-index'	: 9999});
+									//bind again the click event
+									$thumb.bind('click',showLargeImage);
+								});
+								
+							});
+						}).attr('src',large_src);
+					});
+				}
+				
+				//resize window event:
+				//the scroller container needs to update
+				//its height based on the new windows height
+				$(window).resize(function() {
+					var w_h			= $(window).height();
+					$thumbScroller.css('height',w_h);
+					sliderHeight	= w_h;
+				});
+				
+				//create the scrollable container
+				//taken from Manos :
+				//http://manos.malihu.gr/jquery-thumbnail-scroller
+				function buildScrollableItems(){
+					totalContent = (scrollerContentCnt+1)*itemHeight;
+					$thumbScroller.css('height',sliderHeight)
+					.mousemove(function(e){
+						if($scrollerContainer.height()>sliderHeight){
+							var mouseCoords		= (e.pageY - this.offsetTop);
+							var mousePercentY	= mouseCoords/sliderHeight;
+							var destY			= -(((totalContent-(sliderHeight-itemHeight))-sliderHeight)*(mousePercentY));
+							var thePosA			= mouseCoords-destY;
+							var thePosB			= destY-mouseCoords;
+							if(mouseCoords==destY)
+								$scrollerContainer.stop();
+							else if(mouseCoords>destY)
+								$scrollerContainer.stop()
+							.animate({
+								top: -thePosA
+							},
+							animSpeed,
+							easeType);
+							else if(mouseCoords<destY)
+								$scrollerContainer.stop()
+							.animate({
+								top: thePosB
+							},
+							animSpeed,
+							easeType);
+						}
+					}).find('.thumb')
+					.fadeTo(fadeSpeed, 0.6)
+					.hover(
+					function(){ //mouse over
+						$(this).fadeTo(fadeSpeed, 1);
+					},
+					function(){ //mouse out
+						$(this).fadeTo(fadeSpeed, 0.6);
+					}
+				);
+				}
+			});
+		</script>
+</body>
+</html>

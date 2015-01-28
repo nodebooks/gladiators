@@ -1,0 +1,100 @@
+
+{
+   "_id": "messages",
+   "message": [
+               {"type": "CREATE_USER_REQ"},
+               {"type": "CREATE_USER_RESP"},
+               {"type": "LOGIN_REQ"},
+               {"type": "LOGIN_RESP"},
+               {"type": "USER_SALT_REQ"},
+               {"type": "USER_SALT_RESP"},
+               {"type": "GET_AVAILABLE_GLADIATORS_REQ"},
+               {"type": "GET_AVAILABLE_GLADIATORS_RESP", "free": [{}]},
+               {"type": "HIRE_GLADIATOR_REQ", "name": "gladiator's name"},
+               {"type": "HIRE_GLADIATOR_RESP", "response": "OK/NOK", "name": "gladiator's name", "reason": "Not available anymore."},
+               {"type": "FIRE_GLADIATOR_REQ", "gladiator": "gladiator's name"},
+               {"type": "FIRE_GLADIATOR_RESP", "response": "OK/NOK", "gladiator": "gladiator's name", "reason": ""},
+               {"type": "TEAM_REQ",
+                "username": "username"
+               },
+               {"type": "TEAM_RESP",
+                "team": {}
+               },
+               {"type": "MATCH_SYNC",
+                "team1": [{"name": "My team", "gladiator":   [{"name": "Mauri", "pos": [{"x": "1", "y": "1"}]},
+                                                              {"name": "Kaensae", "pos": [{"x": "1", "y": "1"}]}]}], // Include all the gladiator data
+                "team2": [{"name": "Your team", "gladiator": [{"name": "Mauri", "pos": [{"x": "1", "y": "1"}]},
+                                                              {"name": "Kaensae", "pos": [{"x": "1", "y": "1"}]}]}], // Include all the gladiator data
+               },
+         {
+        "type": "MOVE_REQ",
+        "username": "oldman",
+        "oldpos":
+            [{"x": "1",
+              "y": "1"}],
+        "newpos":
+            [{"x": "1",
+              "y": "1"}],
+        "id":"objectid"
+        },
+        {
+        "type": "MOVE_RESP",
+        "response": "OK/NOK",
+        "oldpos":
+            [{"x": "1",
+              "y": "1"}],
+        "newpos":
+            [{"x": "2",
+              "y": "1"}],
+        "id":"objectid",
+        "attack": [{"damage": "0", "target": "name"}]
+        },
+        {
+        "type": "ATTACK_REQ",
+        "username": "oldman",
+        "attackerid": "Mauri",
+        "targetid": "Kaensae",
+        "attackerpos":
+            [{"x": "1",
+              "y": "1"}],
+        "targetpos":
+            [{"x": "1",
+              "y": "1"}],
+        },
+        {
+        "type": "ATTACK_RESP",
+        "response": "OK/NOK",
+        "attackerid": "Mauri",
+        "targetid": "Kaensae",
+        "attackerpos":
+            [{"x": "1",
+              "y": "1"}],
+        "targetpos":
+            [{"x": "2",
+              "y": "1"}],
+        "damage": "damagetaken",
+        "newtargetpos":
+            [{"x": "1",
+              "y": "1"}]
+         },
+         {
+         "type": "BATTLE_CONTROL_SYNC",
+         "paused": true/false,
+         "duration": 1000,
+         "start": 2354
+         },
+         {
+         "type": "BATTLETEAM_SELECT_REQ",
+         "gladiators":[ "name1", "name2", "name3", "name4" ],
+         "username":"test1",
+         "password":"h45h"
+         },
+         {
+         "type": "BATTLETEAM_SELECT_RES",
+         "response": "NOK/OK",
+         "gladiators":[ "name1", "name2", "name3", "name4" ],
+         "username":"test1"
+         }
+         ]
+
+}

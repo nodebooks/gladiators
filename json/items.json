@@ -1,0 +1,153 @@
+{
+    "items":
+    [{
+        "_id": "Magic missile I",
+        "name": "Magic missile I",
+		"type": "spell",
+        "subtype": "attack",
+        "slot": "offhand",
+		"price": "50",
+		"tohit": "70", "toblock": null,	"tocrit": "5", "armourvalue": null, "damage": "1d4", "delay": "1", "range": null,
+		"health": "0", "nimbleness": null, "strength": null, "mana": "-1d5", "age": null,
+		"icon": null,
+        "description": "Sparkling magical bolts from your fingertips."
+        },{
+        "_id": "Cure wounds",
+        "name": "Cure wounds",
+		"type": "spell",
+        "subtype": "healing",
+        "slot": "defhand",
+		"price": "50",
+		"tohit": "80", "toblock": null,	"tocrit": "5", "armourvalue": null, "damage": null, "delay": "2", "range": null,
+		"health": "2d4", "nimbleness": null, "strength": null, "mana": "-2d4", "age": null,
+		"icon": null,
+        "description": "Heals the pain."
+        },
+
+        {
+        "_id": "Healing potion",
+        "name": "Healing potion",
+		"type": "consumable",
+        "subtype": "potion",
+        "slot": "defhand",
+		"price": "50",
+		"tohit": "100", "toblock": null,	"tocrit": null, "armourvalue": null, "damage": null, "delay": "0", "range": "0",
+		"health": "2d4", "nimbleness": "-1", "strength": null, "mana": "0", "age": null,
+		"icon": "potion0",
+        "description": "Heals some wounds."
+        },{
+        "_id": "Major healing potion",
+        "name": "Major healing potion",
+		"type": "consumable",
+        "subtype": "potion",
+        "slot": "defhand",
+		"price": "150",
+		"tohit": "100", "toblock": null,	"tocrit": null, "armourvalue": null, "damage": null, "delay": "0", "range": "0",
+		"health": "4d4+1", "nimbleness": "-3", "strength": "-1", "mana": "0", "age": null,
+		"icon": "potion0",
+        "description": "Heals many wounds."
+        },
+
+        {
+        "_id": "Bronze sword",
+        "name": "Bronze sword",
+		"type": "weapon",
+        "subtype": "sword",
+        "slot": "offhand",
+		"price": "75",
+		"tohit": "50", "toblock": "10",	"tocrit": "2", "armourvalue": "1d3", "damage": "1d4",
+		"health": "0", "nimbleness": null, "strength": null, "mana": null, "age": null,
+		"icon": "sword0",
+        "description": "A crude bronze sword."
+        },{
+        "_id": "Iron sword",
+        "name": "Iron sword",
+		"type": "weapon",
+        "subtype": "sword",
+        "slot": "offhand",
+		"price": "100",
+		"tohit": "50", "toblock": "10",	"tocrit": "4", "armourvalue": "1d3", "damage": "1d6",
+		"health": "0", "nimbleness": null, "strength": null, "mana": null, "age": null,
+		"icon": "sword1",
+        "description": "A crude iron sword."
+        },{
+        "_id": "Steel sword",
+        "name": "Steel sword",
+		"type": "weapon",
+        "subtype": "sword",
+        "slot": "offhand",
+		"price": "150",
+		"tohit": "50", "toblock": "12",	"tocrit": "6", "armourvalue": "1d4", "damage": "2d4+1",
+		"health": "0", "nimbleness": null, "strength": null, "mana": null, "age": null,
+		"icon": "sword2",
+        "description": "A sharp steel sword."
+        },{
+        "_id": "Wooden staff",
+        "name": "Wooden staff",
+		"type": "weapon",
+        "subtype": "staff",
+        "slot": "offhand",
+		"price": "10",
+		"tohit": "60", "toblock": "25",	"tocrit": "6", "armourvalue": "1d4", "damage": "1d6",
+		"health": "0", "nimbleness": "-1", "strength": null, "mana": null, "age": null,
+		"icon": "staff1",
+        "description": "A hard wooden staff."
+        },{
+        "_id": "Morning-star",
+        "name": "Morning-star",
+		"type": "weapon",
+        "subtype": "mace",
+        "slot": "offhand",
+		"price": "80",
+		"tohit": "45", "toblock": "4",	"tocrit": "10", "armourvalue": "1d2", "damage": "2d4+3",
+		"health": "0", "nimbleness": null, "strength": null, "mana": null, "age": null,
+		"icon": "mace1",
+        "description": "A nasty spiked iron mace."
+        },{
+        "_id": "Spiked club",
+        "name": "Spiked club",
+		"type": "weapon",
+        "subtype": "mace",
+        "slot": "offhand",
+		"price": "20",
+		"tohit": "50", "toblock": "4",	"tocrit": "4", "armourvalue": "1d2", "damage": "2d4",
+		"health": "0", "nimbleness": null, "strength": null, "mana": null, "age": null,
+		"icon": "mace0",
+        "description": "A wooden mace with iron spikes."
+        },
+
+        {
+        "_id": "Plate armour",
+        "name": "Plate armour",
+		"type": "armour",
+        "subtype": "plate",
+        "slot": "body",
+		"price": "1200",
+		"tohit": null, "toblock": "98", "tocrit": null, "armourvalue": "2d4+2", "damage": null,
+		"health": null, "nimbleness": "-2", "strength": null, "mana": null, "age": null,
+		"icon": "helmet1",
+        "description": "A full plate armor."
+        },{
+        "_id": "Chain armour",
+        "name": "Chain armour",
+		"type": "armour",
+        "subtype": "chain",
+        "slot": "body",
+		"price": "800",
+		"tohit": null, "toblock": "95", "tocrit": null, "armourvalue": "2d3+1", "damage": null,
+		"health": null, "nimbleness": null, "strength": null, "mana": null, "age": null,
+		"icon": "helmet2",
+        "description": "A full chain armor."
+        },{
+        "_id": "Leather armour",
+        "name": "Leather armour",
+		"type": "armour",
+        "subtype": "leather",
+        "slot": "body",
+		"price": "100",
+		"tohit": null, "toblock": "90", "tocrit": null, "armourvalue": "1d3", "damage": null,
+		"health": null, "nimbleness": null, "strength": null, "mana": null, "age": null,
+		"icon": "helmet0",
+        "description": "A full leather armor."
+    }]
+}

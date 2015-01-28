@@ -1,0 +1,177 @@
+{
+   "_id": "ee5d4d5c7dfdf1568be588ecab00015f",
+   "_rev": "16-267750e124e9e819e9b3a6b7af781fd5",
+   "defender": "{
+   tick: 0,
+   name: "test1",
+   gladiators: [
+   {
+       "name": "Känsä the Skeleton",
+       "race": "skeleton",
+       "age": "5",
+       "health": "20",
+       "nimbleness": "10",
+       "strength": "2",
+       "mana": "10",
+       "salary": "10",
+       "fights": "0",
+       "knockouts": "0",
+       "injured": "0",
+       "pos": {"x":2, "y":7},
+       "melee": [
+           {
+               "name": "astalo",
+               "damage": "2d6",
+               "description": "Hurts bad."
+           }
+       ],
+       "missile": [
+           {
+               "name": "shuriken",
+               "damage": "1d4",
+               "description": "Throw and try to hit the target."
+           }
+       ],
+       "spells": [
+           {
+               "name": "iputaspellonyou",
+               "damage": "1d4"
+           },
+           {
+               "name": "healwounds",
+               "damage": "-1d4"
+           }
+       ],
+       "armour": [
+           {
+               "head": "leather",
+               "icon": "leatherhelmet.png",
+               "description": "A fine piece of leather.",
+               "armourvalue": "1d2+1"
+           },
+           {
+               "torso": "chain",
+               "icon": "chainhauberk.png",
+               "description": "Elven crafted chain hauberk. (Do we have elves?)",
+               "armourvalue": "1d3+2"
+           },
+           {
+               "legs": "leather",
+               "icon": "lederhosen.png",
+               "description": "Ugly but useful. May contain sauerkraut.",
+               "armourvalue": "1d2"
+           },
+           {
+               "feet": "leather",
+               "icon": "leatherboots.png",
+               "description": "A brown pair of boots.",
+               "armourvalue": "1d2"
+           },
+           {
+               "hands": "",
+               "icon": "",
+               "description": "Bare hands.",
+               "armourvalue": "0"
+           },
+           {
+               "shield": "wood",
+               "icon": "roundwoodenshield.png",
+               "description": "A firm round wooden shield to cover your limbs and arteries.",
+               "toblock": "50%",
+               "armourvalue": "1d4"
+           }
+       ]
+   }
+]
+}",
+   "challenger": "{
+   tick: 0,
+   name: "hihi2",
+   gladiators: [
+     {
+       "name": "Mauri the Mighty",
+       "race": "human",
+       "age": "25",
+       "health": "18",
+       "nimbleness": "15",
+       "strength": "18",
+       "mana": "20",
+       "salary": "25",
+       "fights": "100",
+       "knockouts": "48",
+       "injured": "0",
+       "pos": {"x":22, "y":7},
+       "melee": [
+           {
+               "name": "astalo",
+               "damage": "2d6",
+               "description": "Hurts bad."
+           }
+       ],
+       "missile": [
+           {
+               "name": "shuriken",
+               "damage": "1d4",
+               "description": "Throw and try to hit the target."
+           }
+       ],
+       "spells": [
+           {
+               "name": "iputaspellonyou",
+               "damage": "1d4"
+           },
+           {
+               "name": "healwounds",
+               "damage": "-1d4"
+           }
+       ],
+       "armour": [
+           {
+               "head": "leather",
+               "icon": "leatherhelmet.png",
+               "description": "A fine piece of leather.",
+               "armourvalue": "1d2+1"
+           },
+           {
+               "torso": "chain",
+               "icon": "chainhauberk.png",
+               "description": "Elven crafted chain hauberk. (Do we have elves?)",
+               "armourvalue": "1d3+2"
+           },
+           {
+               "legs": "leather",
+               "icon": "lederhosen.png",
+               "description": "Ugly but useful. May contain sauerkraut.",
+               "armourvalue": "1d2"
+           },
+           {
+               "feet": "leather",
+               "icon": "leatherboots.png",
+               "description": "A brown pair of boots.",
+               "armourvalue": "1d2"
+           },
+           {
+               "hands": "",
+               "icon": "",
+               "description": "Bare hands.",
+               "armourvalue": "0"
+           },
+           {
+               "shield": "wood",
+               "icon": "roundwoodenshield.png",
+               "description": "A firm round wooden shield to cover your limbs and arteries.",
+               "toblock": "50%",
+               "armourvalue": "1d4"
+           }
+       ]
+   }
+]
+}",
+   "history": [
+   ],
+   "initial_state": "{
+  basetick: 250,
+  defender: {},
+  challenger: {}
+}"
+}

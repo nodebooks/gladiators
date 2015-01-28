@@ -1,0 +1,553 @@
+* { cursor: url("../pics/gauntlet_cursor.png"), pointer; }
+
+A:focus { cursor: url("../pics/gauntlet_cursor.png"), pointer; }
+
+A:link {text-decoration: none; color: red;}
+A:visited {text-decoration: none;color: red; }
+A:active {text-decoration: none; color: red;}
+A:hover {text-decoration: none; color: red; }
+
+
+
+
+#login {
+	min-width: 250px;
+
+    background-color: #2e1a20;
+    color: white;
+    font-family: 'Fanwood';
+    font-size: 14pt;
+    float: none;
+    width: 800px;
+    padding: 1mm 1mm 1mm 1mm;
+    border: dashed;
+    border-color: #eec06a;
+    border-width: 1px;
+    margin-left:auto;
+    margin-right: auto;
+
+}
+
+.block {
+    width:700px;
+    height:50px;
+    top: 600px;
+    position: absolute;
+    background-color: #2e1a20;
+    color: white;
+    font-family: 'Fanwood';
+    font-size: 24pt;
+    float:right;
+    padding: 1cm 1cm 1cm 1cm;
+    border: dashed;
+    border-color: #eec06a;
+    border-width: 2px;
+    z-index: 15;
+}
+
+#login-nav {
+     display: none;
+}
+
+body {
+    /*background-color: #4d5155; */
+    background-image: url('../assets/gui/wood.png');
+}
+
+@font-face {
+	font-family: "Fanwood";
+	src: url("../assets/fonts/Fanwood.otf");
+}
+@font-face {
+	font-family: "Fanwood-Italic";
+	src: url("../assets/fonts/Fanwood Italic.otf");
+}
+@font-face {
+	font-family: "Fanwood-Text";
+	src: url("../assets/fonts/Fanwood Text.otf");
+}
+@font-face {
+	font-family: "Fanwood-Text-Italic";
+	src: url("../assets/fonts/Fanwood Text Italic.otf");
+}
+
+
+
+#chatbox {
+/*	float: left;*/
+	position: relative;
+	width:760px;
+
+    padding: 1mm 1mm 1mm 1mm;
+	overflow:auto;
+	overflow-y:auto;
+	background-color: #2e1a20;
+   	color: white;
+  	font-family: 'Fanwood';
+  	font-size: 10pt;
+
+    border: dashed;
+    border-color: #eec06a;
+    border-width: 1px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#chatbox-messages {
+    /*    float: left;*/
+    /*margin-left:auto;
+    margin-right:auto;*/
+    display: block;
+    position: absolute;
+	width:700px;
+    height:200px;
+    top: -200px;
+    z-index: 10;
+	overflow:auto;
+	overflow-y:auto;
+	background-color: #2e1a20;
+    	color: white;
+    	font-family: 'Fanwood';
+    	font-size: 10pt;
+    	border:1px solid black;
+}
+
+.message {
+	position: relative;
+	float: left;
+	clear: both;
+    	font-size: 10pt;
+    	font-family: 'Fanwood-Text';
+}
+
+input {
+    background-color: #303030;
+    -webkit-border-radius: .0em;
+    -moz-border-radius: .0em;
+    border-radius: .0em;
+
+/*    -moz-box-shadow: 0 -1px 0 0 px #000;
+    -webkit-box-shadow: 0 -1px 0 0 px #000;
+   box-shadow: 0 -1px 0 0 px #000;*/
+
+    border: none;
+
+    width: 116px;
+    height: 27px;
+    margin:0px 0;
+    color:#fff;
+//    padding:0 0 0 0px;
+    font-family: Arial, Helvetica,sans-serif;
+    font-size:8pt;
+//    letter-spacing:2px;
+  }
+
+input.error { border: 2px solid red; }
+
+.password{
+	float:left;
+
+	margin:0px 0;
+
+	font-family:MisoRegular, Helvetica,Arial,sans-serif;
+
+	text-transform:uppercase;
+
+	letter-spacing:4px;
+
+	font-size:8pt;
+
+	color:#fff;
+
+	}
+label {
+    font-family: Helvetica,Arial,sans-serif;
+    text-rtransform:uppercase;
+    letter-spacing: 0px;
+    font-size:8pt;
+    color:#fff;
+}
+
+.btnp {
+    display: inline-block;
+    margin: 0 0 0 0;
+}
+A.button:hover {
+    background-position: 0px -83px;
+    color: white;
+}
+A.button:visited {
+    background-position: 0px 0px;
+    color: white;
+}
+A.button:active {
+    background-position: 0px -41px;
+    color: white;
+}
+.shadow {
+    box-shadow: 10px 10px 5px #888888;
+}
+
+.button {
+    outline: none;
+	width:200px;
+	height:43px;
+	border:none;
+    line-height:43px;
+    display: block;
+	background-image: url('../assets/gui/buttons-small.png');
+    background-position: 0px 0px;
+    font-family: 'Fanwood';
+    font-size: 16pt;
+    text-shadow: 2px 2px 2px #000000;
+	text-align:center;
+	color:white;
+/*	-webkit-border-radius: .2em;
+
+	-moz-border-radius: .2em;
+
+	border-radius: .2em;*/
+
+
+/*
+	-webkit-box-shadow: 0 0px 1px rgba(255,255,255,0.1);
+
+	-moz-box-shadow: 0 0px 1px rgba(255,255,255,0.1);
+
+	box-shadow: 0 0px 1px rgba(255,255,255,0.1);
+*/
+
+
+
+
+
+	}
+A.button-smaller:hover {
+    background-position: 0px -83px;
+    color: white;
+}
+A.button-smaller:visited {
+    background-position: 0px 0px;
+    color: white;
+}
+A.button-smaller:active {
+    background-position: 0px -41px;
+    color: white;
+}
+.button-smaller {
+    outline: none;
+	width:145px;
+	height:43px;
+
+	border:none;
+    line-height:43px;
+    display: block;
+	background-image: url('../assets/gui/buttons-smaller.png');
+    background-position: 0px 0px;
+    font-family: 'Fanwood';
+    font-size: 16pt;
+    text-shadow: 2px 2px 2px #000000;
+	text-align:center;
+	color:white;
+
+	button:hover{
+
+		background: #363535;
+
+		background: -webkit-gradient(linear, left top, left bottom, from(#4b4b4b), to(#303030));
+
+		background: -moz-linear-gradient(bottom,  #303030,  #4b4b4b);
+
+		filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#4b4b4b', endColorstr='#303030');
+
+	}
+
+
+
+		button:active{
+
+			border:none;
+
+			-webkit-box-shadow: 0 0px 2px rgba(255,255,255,0.2);
+
+			-moz-box-shadow: 0 0px 2px rgba(255,255,255,0.2);
+
+			box-shadow: 0 0px 2px rgba(255,255,255,0.2);
+
+		}
+
+
+
+input:focus:required:invalid {
+	color:#000;
+}
+
+
+}
+#container{
+    border:5px solid grey;
+    width:800px;
+    margin:0 auto;
+    padding:10px;
+}
+#chatLog{
+    padding:5px;
+    border:1px solid black;
+}
+#chatLog p {
+    margin:0;
+}
+.event {
+    color:#999;
+}
+.warning{
+    font-weight:bold;
+    color:#CCC;
+}
+#ranking {
+    display:none;
+    width:400px;
+}
+/* how Crafty window is displayed */
+#cr-stage {
+    border:2px solid black;
+/*margin:5px auto;*/
+    color:white;
+/*   float:left; */
+    position:relative;
+    display:block;
+    margin-left:auto;
+    margin-right: auto;
+}
+#managers_title, #welcome_title {     font-family: 'Fanwood'; font-size: 12pt;}
+
+.team_entry {
+    font-size: 10pt;
+    font-family: 'Fanwood-Text';
+}
+
+#challenges {
+    font-family: 'Fanwood-Text';
+    font-size: 12pt;
+
+    display: block;
+	float: left;
+	position: absolute;
+    top: 20px;
+    left: -230px;
+	width: 250px;
+    height: 300px;
+
+    z-index:15;
+    padding: 1mm 1mm 1mm 1mm;
+	background-color: #2e1a20;
+   	color: white;
+    border: dashed;
+    border-color: #eec06a;
+    border-width: 1px;
+	overflow:auto;
+	overflow-y:auto;
+}
+
+#gladiatorinfo {
+    font-family: 'Fanwood-Text';
+    font-size: 12pt;
+
+    display: block;
+	float: left;
+	position: absolute;
+    top: 340px;
+    left: -230px;
+	width: 250px;
+    height: 300px;
+
+    z-index:15;
+    padding: 1mm 1mm 1mm 1mm;
+	background-color: #2e1a20;
+   	color: white;
+    border: dashed;
+    border-color: #eec06a;
+    border-width: 1px;
+	overflow:auto;
+	overflow-y:auto;
+}
+
+.footer {
+    display:block;
+    width:800px;
+    height:200px;
+    font-family: Arial,Helvetica;
+    font-size: 8pt;
+
+}
+.padding {
+    padding: 10px;
+    display: block-inline;
+    float: left;
+}
+.gladiatorshowcase {
+    width: 230px;
+    height: 330px;
+    display:block;
+    border: 5px none ;
+    font-family: 'Fanwood-Text';
+    font-size: 12pt;
+    color: black;
+    background-image: url('../assets/gui/paper.png');
+}
+
+.border-top-left {
+    position:relative;
+    top:7px;
+    left:3px;
+    border: none;
+}
+.border-top-right {
+    position:relative;
+    top:7px;
+    left:-4px;
+    border: none;
+}
+.border-bottom-left {
+    position:relative;
+    top:-7px;
+    left:4px;
+    border: none;
+}
+.border-bottom-right {
+    position:relative;
+    top:-7px;
+    left:-4px;
+    border: none;
+}
+.border-left {
+    position: relative;
+ }
+
+table {
+    border-collapse: collapse;
+    position: relative;
+    top: -20px;
+    left: -10px;
+}
+td, th {
+    padding: 0;
+}
+.border-top {
+    position: relative;
+    top: 3px;
+}
+.border-bottom {
+    position: relative;
+    top: -4px;
+}
+	position:fixed;
+	top:0px;
+	left:0px;
+	bottom:0px;
+	margin:0;
+	width:175px;
+	padding:0 10px;
+	background:transparent url(../bg.png) repeat top left;
+	border-right:1px solid #f0f0f0;
+	-moz-box-shadow:-2px 0px 10px #000 inset;
+	-webkit-box-shadow:-2px 0px 10px #000 inset;
+	box-shadow:-2px 0px 10px #000 inset;
+}
+#thumbScroller{
+	position:relative;
+	height:600px;
+	overflow:hidden;
+	left:-180px;
+}
+#thumbScroller .container{
+	position:relative;
+	float:left;
+}
+#thumbScroller .content{
+	clear:both;
+	float:left;
+}
+#thumbScroller .content div{
+	padding:2px;
+	height:100%;
+	float:left;
+}
+#thumbScroller .content a{
+	outline:none;
+}
+#thumbScroller img{
+	border:5px solid #000;
+	-moz-box-shadow:0px 0px 2px #000;
+	-webkit-box-shadow:0px 0px 2px #000;
+	box-shadow:0px 0px 2px #000;
+}
+img.pg_thumb,
+img#pg_large,
+.pg_title h1,
+.pg_content .pg_description div
+{
+	position:absolute;
+}
+.pg_content .pg_description div{
+	display:none;
+}
+.pg_title h1{
+	display:none;
+	left:250px;
+	top:-50px;/*25*/
+	background:transparent url(../bg.png) repeat top left;
+	padding:10px 20px;
+	color:#fff;
+	font-weight:bold;
+}
+img.pg_thumb{
+	display:none;
+}
+img#pg_large{
+	z-index:9999;
+}
+img.pg_thumb,
+img#pg_large{
+	top:90px;
+	left:250px;
+	padding:10px;
+	background:transparent url(../bg.png) repeat top left;
+	cursor:pointer;
+}
+.pg_description h2{
+	color:#000;
+	font-size:22px;
+	margin-bottom:10px;
+	background:transparent url(../bg2.png) repeat top left;
+	padding:5px;
+}
+.pg_description p{
+	font-size:14px;
+	width:500px;
+	padding:10px;
+	overflow:hidden;
+	text-shadow:0px 0px 1px #fff;
+	background:transparent url(../bg.png) repeat top left;
+	color:#fff;
+}
+#pg_desc1 div{
+	top:420px;
+	left:205px;
+}
+#pg_desc2 div{
+	top:560px;
+	left:295px;
+}
+
+.thumb {
+    width:170px;
+}
+
+#thumbContainer {
+    display: block;
+    z-index: 15;
+    position: absolute;
+    top: 0px;
+    left: -300px;
+}

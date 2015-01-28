@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="25" height="25" tilewidth="32" tileheight="32">
+ <properties>
+  <property name="name" value="arena"/>
+ </properties>
+ <tileset firstgid="1" name="gas-valhalla" tilewidth="32" tileheight="32" spacing="2">
+  <image source="gas-valhalla.png" width="546" height="378"/>
+  <tile id="17">
+   <properties>
+    <property name="solid" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="177" name="scrollsandblocks" tilewidth="32" tileheight="32">
+  <image source="scrollsandblocks.png" width="544" height="320"/>
+ </tileset>
+ <layer name="Ground" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJy9lk0KwjAQhbPyIOrWjbrVhXTlD4LdKoIiBX/BulLQA+gN9AZ6SF8hwSFM2mltu/gITKfz0pdJ0qpSqlYgddAErQJpl6zhgR7og0HMKM3xGA0fTMAabGJGaY5fssaSsABncIkZpTm0bheMwQoccyQAQ9DRXs21xh08rFwudoqpbfIjjSkYWRpP8AIN8g6N2XCaJt+l8QYf630To3PldOx8lwbnC60j8VLqVejQ4HwzsbReudaW882OZfWK8z2PvkpT13wz9U7SV2k1/vEqVL8eoM9pPE+vuD1qr1uWPcj5QOdg5m1iUq+S9h33bWm94s4f7hyh83Z5NQN7cFD8HpScV6Znub7agh24gpuS3R9J/UzXKdD1fe1VdD8W8c8Q1a+ALysD7rI=
+  </data>
+ </layer>
+ <layer name="Overlay" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJztlcsKwjAQRScfoX9Qt9oPsPha+sCmSx9/4P8vvYEUB+mYSelUF144i8LNHGgGQjR+5o5oIVA6fUdKCVborAU2Tt/hmYAd2MZv6Wx7nhQOivPC3CnwoGFOzXlNh+Jcz2hzRqcW8E7fITa7AqfP19Q7e7AER3A3clzAITqs8w1H+H+VseMKbsaOAsyMHRZJOYa4n5RD2u8cd8oh7UDObqQc0g7k7MYv3Pnf8Up4Qx4jOt7f+q7kdjx1v7dDhM99AjEfKTA=
+  </data>
+ </layer>
+ <layer name="Collision" width="25" height="25" opacity="0.54">
+  <data encoding="base64" compression="zlib">
+   eJwTYmBgEBrFo3gIY1qA4W4HNe0c7nZQExBrByVuoNQOYuweaXZQAkbtGLWDlhgAUY0UQQ==
+  </data>
+ </layer>
+ <layer name="Front" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20ON6AAAHgzCcQAAQ==
+  </data>
+ </layer>
+ <layer name="Spawnpoints" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUDBYgRKI4pWqHMiDGn9jUoIuNhPCilh9HQliBACF/Uio/mAE1yhpS/T+Uw2ugAQAqGAEh
+  </data>
+ </layer>
+</map>

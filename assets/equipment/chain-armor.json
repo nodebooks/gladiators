@@ -1,0 +1,130 @@
+{
+    "name":"armour_chain",
+    "walk": {
+        "head": {
+           "image":"HEAD_chain_armor_helmet.png",
+           "z":3
+         },
+        "torso": {
+           "image":"TORSO_chain_armor_torso.png",
+           "z":3
+         },
+        "belt": {
+           "image":"BELT_leather.png",
+           "z":3
+         },
+         "legs": null,
+         "hands": null,
+         "arms": null,
+         "feet": {
+           "image":"FEET_shoes_brown.png",
+           "z":3
+         }
+    },
+    "thrust": {
+         "head": {
+           "image":"HEAD_chain_armor_helmet.png",
+           "z":3
+         },
+        "torso": {
+           "image":"TORSO_chain_armor_torso.png",
+           "z":3
+         },
+        "belt": {
+           "image":"BELT_leather.png",
+           "z":3
+         },
+         "legs": null,
+         "hands": null,
+         "arms": null,
+         "feet": {
+           "image":"FEET_shoes_brown.png",
+           "z":3
+         }
+    },
+    "slash": {
+     "head": {
+           "image":"HEAD_chain_armor_helmet.png",
+           "z":3
+         },
+        "torso": {
+           "image":"TORSO_chain_armor_torso.png",
+           "z":3
+         },
+        "belt": {
+           "image":"BELT_leather.png",
+           "z":3
+         },
+         "legs": null,
+         "hands": null,
+         "arms": null,
+         "feet": {
+           "image":"FEET_shoes_brown.png",
+           "z":3
+         }
+    },
+    "bow": {
+     "head": {
+           "image":"HEAD_chain_armor_helmet.png",
+           "z":3
+         },
+        "torso": {
+           "image":"TORSO_chain_armor_torso.png",
+           "z":3
+         },
+        "belt": {
+           "image":"BELT_leather.png",
+           "z":3
+         },
+         "legs": null,
+         "hands": null,
+         "arms": null,
+         "feet": {
+           "image":"FEET_shoes_brown.png",
+           "z":3
+         }
+    },
+    "hurt": {
+     "head": {
+           "image":"HEAD_chain_armor_helmet.png",
+           "z":3
+         },
+        "torso": {
+           "image":"TORSO_chain_armor_torso.png",
+           "z":3
+         },
+        "belt": {
+           "image":"BELT_leather.png",
+           "z":3
+         },
+         "legs": null,
+         "hands": null,
+         "arms": null,
+         "feet": {
+           "image":"FEET_shoes_brown.png",
+           "z":3
+         }
+
+    },
+    "spellcast": {
+       "head": {
+           "image":"HEAD_chain_armor_helmet.png",
+           "z":3
+         },
+        "torso": {
+           "image":"TORSO_chain_armor_torso.png",
+           "z":3
+         },
+        "belt": {
+           "image":"BELT_leather.png",
+           "z":3
+         },
+         "legs": null,
+         "hands": null,
+         "arms": null,
+         "feet": {
+           "image":"FEET_shoes_brown.png",
+           "z":3
+         }
+    }
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="25" height="24" tilewidth="32" tileheight="32">
+ <properties>
+  <property name="name" value="valhalla"/>
+ </properties>
+ <tileset firstgid="1" name="gas-valhalla" tilewidth="32" tileheight="32" spacing="2">
+  <image source="gas-valhalla.png" width="546" height="378"/>
+ </tileset>
+ <tileset firstgid="177" name="rpc_indoor_tileset" tilewidth="32" tileheight="32">
+  <image source="rpc_indoor_tileset.png" width="352" height="447"/>
+ </tileset>
+ <tileset firstgid="320" name="scrollsandblocks" tilewidth="32" tileheight="32">
+  <image source="scrollsandblocks.png" width="544" height="320"/>
+ </tileset>
+ <layer name="Ground" width="25" height="24">
+  <data encoding="base64" compression="zlib">
+   eJztjrkKwkAYhLfRN9AH8MgDqIW22nh02iTaGcSrE7xf3hmYhRQJLomLzRYfM5A/823LGNP2SAf0QN8jgwLHEIzBHCzAxKHzfuTo4P4ULMEabMDKofN+luOxDr6hoeR+rH9O4Kytb533iTzcaSqtg99ryriiI1GvK//pOIAteIE3SB0674+ODu4/wKUET3nyHHxDV1l2P+vhTqS0jl3F3SL2wREcwREcP3Zcwc0D94wj9UQkxwd35twd
+  </data>
+ </layer>
+ <layer name="Overlay" width="25" height="24">
+  <data encoding="base64" compression="zlib">
+   eJxjYBg4YEhj9ejAhQg2sW7A5ZZAItikmIcNnEdiX8AhTim4hcS+jUOcUkBqWOECIVRwCy3NG4ygG4h7aKRXFkrPBuI5ZNqBrFcWj7rVQLyGTDuI1UvLsIIBfGGlwsjAoArEaoyk60UG+PyrDzTbAIgNcdhBjbDCZQcPI2G9yACffwn5Y6iHFTF6kQG6f78jsa2AZlsDsQ0jdnlyw4oXh5uxyVOSf4cCAAApyCz8
+  </data>
+ </layer>
+ <layer name="Front" width="25" height="24">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMJgBDyPt7dAB2sFNY3vU6eAPIxrbIQ40X5nGdigBzdejQ1iNAtoCAAHYATA=
+  </data>
+ </layer>
+ <layer name="Collision" width="25" height="24">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFQwEIkYHJsYNc9mCxA93vxLKJCTNKwhab23CZTa75hMyi1Fx89o3aQTs7SE0XQ80OfHmCWnbgUz+S7CBU7pGilxh1pMoPRB6kFQYBAOhKCF8=
+  </data>
+ </layer>
+</map>

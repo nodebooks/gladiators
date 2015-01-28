@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="style.css" type="text/css"/>
+<script type="text/javascript" src="./lib/jquery-1.7.2.js"></script>
+</head>
+<body>
+
+  <div id="gas_main" class="gas_main">
+    <img src="../assets/gui/pattern.png" alt="" class="gas_preview"  />
+    <div class="gas_overlay"></div>
+    <h1>Galaxy All-Stars: Fantasy Edition</h1>
+
+    <div id="gas_loading" class="gas_loading">
+      <span>Loading...</span>
+    </div>
+    <!-- Navigation div -->
+
+    <ul id="gas_nav" class="gas_navigation" >
+      <!-- image node -->
+      <li class="album">
+        <span class="gas_link mygladiators">
+          My Gladiators
+        </span>
+
+<!--        <div class="gas_wrapper gas_thumbs_wrapper">
+          <div class="gas_thumbs">
+            <img src="../assets/portrait/thumbs/Aileen.png" alt="../assets/portrait/Aileen.png" />
+            <img src="../assets/portrait/thumbs/Bjin.png" alt="../assets/portrait/Bjin.png" />
+            <img src="../assets/portrait/thumbs/Jonas.png" alt="../assets/portrait/Jonas.png" />
+            <img src="../assets/portrait/thumbs/FlareFemaleHero1.png" alt="../assets/portrait/FlareFemaleHero1.png" />
+            <img src="../assets/portrait/thumbs/Joi.png" alt="../assets/portrait/Joi.png" />
+            <img src="../assets/portrait/thumbs/Maxime.png" alt="../assets/portrait/Maxime.png" />
+            <img src="../assets/portrait/thumbs/FlareMaleHero1.png" alt="../assets/portrait/FlareMaleHero1.png" />
+            <img src="../assets/portrait/thumbs/FlareFemaleHero3.png" alt="../assets/portrait/FlareFemaleHero3.png" />
+          </div>
+
+        </div> -->
+      </li>
+      <li class="album">
+        <span class="gas_link battleteam">
+          Battleteam
+        </span>
+      </li>
+      <!-- Text node -->
+      <li>
+        <span class="gas_link challenges">
+          Challenges
+        </span>
+        
+      </li>
+       <li>
+        <span class="gas_link market">
+          Market
+        </span>
+      </li>
+      <li>
+        <span class="gas_link credits">
+          Credits
+        </span>
+      </li>
+    </ul>
+  </div>
+  <div class="gas_battle" id="gas_battle">
+    <p class="btnp" style="position:relative;left:50%;"><a href="#" class="button-smaller" onclick="gas.enterArena();">Enter the Arena</a></p>
+      <div class="gas_subcontent" style="height:150px;">
+
+      <span id="challenger" style="float:left;" class="gas_battle_portrait">
+        Anssi the Allmighty<br/>
+        <img src="../assets/portrait/thumbs/FlareMaleHero1.png" />
+      </span>
+      VS:
+      <span id="defender" style="float:right;" class="gas_battle_portrait">
+        Jaakko the Jihad<br/>
+        <img src="../assets/portrait/thumbs/FlareFemaleHero3.png"/>
+      </span>
+            
+    </div>
+  </div>
+  <div class="gas_arena" id="gas_arena">
+    <!-- my gladiators, point to select action -->
+    <div class="left" id="left">
+      <div class="gladiator">
+        <img class="face" src="../assets/portrait/thumbs/Aileen.png" alt="Aileen" />
+        <div class="action">
+          <img class="battle_action melee" src="../assets/gui/melee-attack.png">
+          <img class="battle_action ranged" src="../assets/gui/ranged-attack.png">
+          <img class="battle_action defend" src="../assets/gui/defend.png"><br/>
+          <img class="battle_action cast" src="../assets/gui/spellcast.png">
+        </div>
+      </div>
+      <div class="gladiator">
+        <img  class="face" src="../assets/portrait/thumbs/Bjin.png" alt="Bjin" />
+        <div class="action">
+          <img class="battle_action melee" src="../assets/gui/melee-attack.png">
+          <img class="battle_action ranged" src="../assets/gui/ranged-attack.png">
+          <img class="battle_action defend" src="../assets/gui/defend.png"><br/>
+          <img class="battle_action cast" src="../assets/gui/spellcast.png">
+
+        </div>
+      </div>
+      <div class="gladiator">
+        <img  class="face" src="../assets/portrait/thumbs/Jonas.png" alt="Jonas" />
+        <div class="action">
+          <img class="battle_action melee" src="../assets/gui/melee-attack.png">
+          <img class="battle_action ranged" src="../assets/gui/ranged-attack.png">
+          <img class="battle_action defend" src="../assets/gui/defend.png"><br/>
+          <img class="battle_action cast" src="../assets/gui/spellcast.png">
+        </div>
+      </div>
+      <div class="gladiator">
+        <img  class="face" src="../assets/portrait/thumbs/FlareFemaleHero1.png" alt="FemaleHero1" />
+        <div class="action">
+          <img class="battle_action melee" src="../assets/gui/melee-attack.png">
+          <img class="battle_action ranged" src="../assets/gui/ranged-attack.png">
+          <img class="battle_action defend" src="../assets/gui/defend.png"><br/>
+          <img class="battle_action cast" src="../assets/gui/spellcast.png">
+        </div>
+      </div>
+
+    </div>
+
+    <!-- battle visualization with crafty, point to highlight gladiator from UI -->
+    <div class="center" id="center">
+      <span style="position:relative; left:50%; top:50%;">
+        <p class="btnp"><a href="#" class="button-smaller" onclick="gas.yieldBattle();">Yield Battle</a></p>
+      </span>
+    </div>
+    
+    <!-- enemy div, point to attack -->
+    <div class="right" id="right">
+      <img src="../assets/portrait/thumbs/Joi.png" alt="../assets/portrait/Joi.png" />
+      <img src="../assets/portrait/thumbs/Maxime.png" alt="../assets/portrait/Maxime.png" />
+      <img src="../assets/portrait/thumbs/FlareMaleHero1.png" alt="../assets/portrait/FlareMaleHero1.png" />
+      <img src="../assets/portrait/thumbs/FlareFemaleHero3.png" alt="../assets/portrait/FlareFemaleHero3.png" />
+    </div>
+    <!-- spells div, will be displayed over right edge where it is easier to select -->
+    <div class="spells" id="spells">
+    </div>
+  </div>
+  <div class="gas_market" id="gas_market">
+    <div class="gas_wrapper gas_thumbs_wrapper">
+      <div class="gas_thumbs">
+        <img src="../assets/portrait/thumbs/Aileen.png" alt="../assets/portrait/Aileen.png" />
+        <img src="../assets/portrait/thumbs/Bjin.png" alt="../assets/portrait/Bjin.png" />
+        <img src="../assets/portrait/thumbs/Jonas.png" alt="../assets/portrait/Jonas.png" />
+        <img src="../assets/portrait/thumbs/FlareFemaleHero1.png" alt="../assets/portrait/FlareFemaleHero1.png" />
+        <img src="../assets/portrait/thumbs/Joi.png" alt="../assets/portrait/Joi.png" />
+        <img src="../assets/portrait/thumbs/Maxime.png" alt="../assets/portrait/Maxime.png" />
+        <img src="../assets/portrait/thumbs/FlareMaleHero1.png" alt="../assets/portrait/FlareMaleHero1.png" />
+        <img src="../assets/portrait/thumbs/FlareFemaleHero3.png" alt="../assets/portrait/FlareFemaleHero3.png" />
+        <img src="../assets/portrait/thumbs/Aileen.png" alt="../assets/portrait/Aileen.png" />
+        <img src="../assets/portrait/thumbs/Bjin.png" alt="../assets/portrait/Bjin.png" />
+        <img src="../assets/portrait/thumbs/Jonas.png" alt="../assets/portrait/Jonas.png" />
+        <img src="../assets/portrait/thumbs/FlareFemaleHero1.png" alt="../assets/portrait/FlareFemaleHero1.png" />
+        <img src="../assets/portrait/thumbs/Joi.png" alt="../assets/portrait/Joi.png" />
+        <img src="../assets/portrait/thumbs/Maxime.png" alt="../assets/portrait/Maxime.png" />
+        <img src="../assets/portrait/thumbs/FlareMaleHero1.png" alt="../assets/portrait/FlareMaleHero1.png" />
+        <img src="../assets/portrait/thumbs/FlareFemaleHero3.png" alt="../assets/portrait/FlareFemaleHero3.png" />
+        <img src="../assets/portrait/thumbs/Aileen.png" alt="../assets/portrait/Aileen.png" />
+        <img src="../assets/portrait/thumbs/Bjin.png" alt="../assets/portrait/Bjin.png" />
+        <img src="../assets/portrait/thumbs/Jonas.png" alt="../assets/portrait/Jonas.png" />
+        <img src="../assets/portrait/thumbs/FlareFemaleHero1.png" alt="../assets/portrait/FlareFemaleHero1.png" />
+        <img src="../assets/portrait/thumbs/Joi.png" alt="../assets/portrait/Joi.png" />
+        <img src="../assets/portrait/thumbs/Maxime.png" alt="../assets/portrait/Maxime.png" />
+        <img src="../assets/portrait/thumbs/FlareMaleHero1.png" alt="../assets/portrait/FlareMaleHero1.png" />
+        <img src="../assets/portrait/thumbs/FlareFemaleHero3.png" alt="../assets/portrait/FlareFemaleHero3.png" />
+        </div>
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+     // prevent touch moving in tablet apps
+    $(document).bind( 'touchmove',function(e) {
+       e.preventDefault();
+    });
+     
+   
+      var $loader = $('#gas_loading');
+      var $list = $('#gas_nav');
+      var $currImage = $('#gas_main').children('img:first');
+      var $battle = $('#gas_battle');
+
+      setTimeout(function(){
+         showLinks();
+         $loader.hide();
+      },
+      1000);
+
+      /* Loader for first image...
+      $('<img>').load(function(){
+          $loader.hide();
+          $currImage.fadeIn(3000);
+          setTimeout(function(){
+          $list.animate({'left':'0px'},500);
+          },
+          1000);
+      }).attr('src', $currImage.attr('src'));*/
+      
+      makeMarketThumbs();
+     
+     function makeMarketThumbs(){
+       var $thumbs_wrapper = $('#gas_market').find('.gas_thumbs_wrapper');
+       var $thumbs = $thumbs_wrapper.children(':first');
+       var finalH = $thumbs.find('img').length * 123;
+       $thumbs.css('height', finalH + 'px');
+       makeScrollable($thumbs_wrapper, $thumbs);
+     }
+     
+     
+     function hideLinks(){
+        $('#gas_nav').animate({'left':'-300px'},300);
+     }
+
+     function showLinks(){
+        $('#gas_nav').animate({'left':'0px'},500);
+
+     }
+     ////////////////////
+     // bindings for clicks
+     $('li span.mygladiators').bind('click', function(){
+         console.log('My gladiators');
+     });
+     $('li span.battleteam').bind('click', function(){
+         console.log('My gladiators');
+     });
+     $('li span.challenges').bind('click', function(){
+         var $bottom = $('#gas_battle').show().css('bottom');
+
+         if ( $bottom != '0px') $('#gas_battle').animate({'bottom':'0px'},400);
+          else                  $('#gas_battle').animate({'bottom':'-600px'},400);
+
+         $('#gas_market').find('.gas_wrapper').hide();
+     });
+     $('li span.market').bind('click', function(){
+         $('#gas_market').find('.gas_wrapper').show();
+     });
+     $('li span.credits').bind('click', function(){
+         console.log('My gladiators');
+     });
+
+
+      // thumb clicking
+      $('#gas_market').find('.gas_thumbs img').bind('click', function(){
+         var $this = $(this);
+         $loader.show();
+         $('<img class="gas_preview"/>').load( function(){
+            var $this = $(this); 
+            var $currImage = $('#gas_main').children('img:first');
+            $this.insertBefore($currImage);
+            $loader.hide();
+            $currImage.fadeOut(2000, function(){
+              $(this).remove();
+            });
+        }).attr('src', $this.attr('alt'));
+      }).bind('mouseenter', function(){
+         $(this).stop().animate({'opacity':'1'});
+      }).bind('mouseleave', function(){
+         $(this).stop().animate({'opacity':'0.7'});
+      });
+
+      // hide thumbnails
+
+      function hideThumbs(){
+
+      $list.find('li.current')
+      .animate({'height':'50px'}, 400, function(){
+          $(this).removeClass('current');
+      })
+     .find('.gas_thumbs_wrapper')
+     .hide(200)
+     .andSelf()
+     .find('.gas_link span')
+     .addClass('gas_arrow_down')
+     .removeClass('gas_arrow_up')
+      }
+
+      // thumbs move on mouse
+      function makeScrollable($outer, $inner ){
+      var extra = 800;
+      var divHeight = $outer.height();
+      $outer.css({
+      overflow: 'hidden'
+      });
+
+      var lastElem = $inner.find('img:last');
+      $outer.scrollTop(0);
+      $outer.unbind('mousemove').bind('mousemove', function(e){
+      console.log('mousemove here');
+      var containerHeight = lastElem[0].offsetTop + lastElem.outerHeight() + 2*extra;
+      var top = (e.pageY - $outer.offset().top) * (containerHeight-divHeight) / divHeight - extra;
+      $outer.scrollTop(top);
+      });
+     }
+      // bind click to show action div
+      $('#left').find('img.face').each( function(){
+          $img = $(this);
+          
+          $img.bind('click', function(e){
+             hideActions();
+             $(this).next()
+                .css({'top':$(this).offset().top})
+                .addClass('current')
+                .animate({'left':'125px'},400, function(){});
+          });
+      });
+
+      // bindings for melee attack
+      $('#left').find('img.melee').each( function(){
+          $(this).bind('click', function(e){
+              var $gladiator = $(this).parent().prev('img').attr('alt');
+              console.log('clicked melee on ', $gladiator );
+         });
+      });
+      // bindings for ranged attack
+      $('#left').find('img.ranged').each( function(){
+          $(this).bind('click', function(e){
+              var $gladiator = $(this).parent().prev('img').attr('alt');
+              console.log('clicked ranged on ', $gladiator );
+         });
+      });
+      // bindings for defense
+      $('#left').find('img.defend').each( function(){
+          $(this).bind('click', function(e){
+              var $gladiator = $(this).parent().prev('img').attr('alt');
+              console.log('clicked defend on ', $gladiator );
+         });
+      });
+      // bindings for magic
+      $('#left').find('img.cast').each( function(){
+          $(this).bind('click', function(e){
+              var $gladiator = $(this).parent().prev('img').attr('alt');
+              console.log('clicked spellcast on ', $gladiator );
+         });
+      });
+
+      // hides selected actions
+      function hideActions(){
+         $('#left').find('.current').each( function(){
+            $(this).removeClass('current').animate({'left':'-500px'},400);
+         });
+      }
+      
+      // position battle start div to center
+      var $offset = -$('#gas_battle').width()/2;
+      $('#gas_battle').css({'margin-right': $offset});
+
+      // position arena div to center
+      var $coffset = -$('#center').width()/2;
+      $('#center').css({'margin-right': $coffset});
+      
+      var gas = {
+         searchVictim: function( $name ){
+            var $loader = $('#gas_loading').show();
+            setTimeout( function(){
+              console.log('Searching for', $name);
+              $loader.hide();}, 1000);
+          },
+
+      
+          enterArena: function(){
+            var $battle = $('#gas_battle');
+            var $height = -$battle.height();
+            
+            $battle.animate({'bottom':$height+'px'}, 400, function(){
+                  // hide enter div              
+                  $battle.hide();
+     
+                  // get objects to show
+                  var $left = $('#left');
+                  var $right = $('#right');
+                  var $center = $('#center');
+                  // reset positions to top
+                  $left.css({'top':'-600px'}).show();
+                  $right.css({'top':'-600px'}).show();
+                  $center.css({'top':'-600px'}).show();
+                  
+                  // my side flows in first
+                  $left.animate({'top':'0px'},400); 
+                  // after that, enemy side
+                  setTimeout(function(){
+                     $right.animate({'top':'0px'},400); 
+                  }, 500);
+                  // finally, actual arena
+                  setTimeout(function(){
+                      $center.animate({'top':'20px'},1000);
+                  }, 1000);
+            });
+            $('#gas_nav').animate({'left':'-300px'},300, function(){});
+            
+          },
+     
+          yieldBattle: function(){
+     
+               $('#center').animate({'top':'600px'},400, function(){ $(this).hide();});
+               $('#left').animate({'top':'600px'},700, function(){ $(this).hide();});
+               $('#right').animate({'top':'600px'},900, function(){ $(this).hide();});
+               $('#gas_nav').css('display','inline').css('left','–300px');
+               setTimeout( function(){
+                  showLinks();
+               },500);
+     
+          }
+      
+      };
+
+</script>
+
+<!-- Main page with server connection info -->
+<!-- Challenges -->
+<!-- Gladiator market -->
+<!-- Gladiator tuning -->
+<!-- Battle view -->
+<!-- Ranking view -->
+
+</body>
+</html>

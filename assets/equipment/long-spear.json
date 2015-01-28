@@ -1,0 +1,14 @@
+{
+        "name":"long_spear",
+        "walk": {},
+        "thrust": {
+            "weapon": {  
+                     "image":"WEAPON_spear.png",
+                     "z":5
+           }                    
+        },
+        "slash": {},
+        "bow": {},
+        "hurt": {},
+        "spellcast": {}       
+}

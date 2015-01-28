@@ -1,0 +1,32 @@
+{
+
+    "_id": 						"configs",
+    "playerspershard":			1000,
+    "teamsizemax": 				8,
+    "teamsizematch": 			4,
+    "challengerankmax": 		10,
+    "matchchat": 				"false",
+    "lobbychat": 				"true",
+	"startingmoney":			200,
+	"basesalary": 		    	"5d4",
+	"freegladiators":		    2,
+    "gladiatorsindatabase": 	100,
+	"hirelistlength":			12,
+
+    "AICONFIG":                 true,
+    "aiplayers":                50,
+    "aiteamsize":               4,
+    "npcs":                     ["Morons", "Wyverns", "Dragons", "Destroyers"],
+    "aipassword":               "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+
+	"SERVER_CACHE_CONTROLS":	true,
+	"cachewriteperiod":			1000,
+	"statswriteperiod":			120000,
+
+	"DATABASE":					true,
+    "gladiatordb":				"gladiators",
+    "userdb":                 	"users",
+    "battledb":                 "battles",
+	"itemdb":					"items"
+
+}

@@ -1,0 +1,184 @@
+{ 
+  "name":"armour_leather",
+  "walk": {
+        "head":{
+               "image":"HEAD_leather_armor_hat.png",
+               "z":3
+         },
+        "torso":{
+                "image":"TORSO_leather_armor_torso.png",
+                 "z":3
+        },
+        "belt":{
+                "image":"BELT_leather.png",
+                "z":3
+        },
+        "legs":{
+                "image":"LEGS_pants_greenish.png",
+                "z":3
+        },
+        "feet": {
+                "image":"FEET_shoes_brown.png",
+                "z":3
+        },
+        "hands": {
+                 "image":"TORSO_leather_armor_bracers.png",
+                 "z":3
+        },
+        "arms": {
+                "image":"TORSO_leather_armor_shoulders.png",
+                "z":3
+        }
+   },
+   "thrust": {
+        "head":{
+               "image":"HEAD_leather_armor_hat.png",
+               "z":3
+         },
+        "torso":{
+                "image":"TORSO_leather_armor_torso.png",
+                 "z":3
+        },
+        "belt":{
+                "image":"BELT_leather.png",
+                "z":3
+        },
+        "legs":{
+                "image":"LEGS_pants_greenish.png",
+                "z":3
+        },
+        "feet": {
+                "image":"FEET_shoes_brown.png",
+                "z":3
+        },
+        "hands": {
+                 "image":"TORSO_leather_armor_bracers.png",
+                 "z":3
+        },
+        "arms": {
+                "image":"TORSO_leather_armor_shoulders.png",
+                "z":3
+        }
+        
+   },
+   "slash": {
+       "head":{
+               "image":"HEAD_leather_armor_hat.png",
+               "z":3
+         },
+        "torso":{
+                "image":"TORSO_leather_armor_torso.png",
+                 "z":3
+        },
+        "belt":{
+                "image":"BELT_leather.png",
+                "z":3
+        },
+        "legs":{
+                "image":"LEGS_pants_greenish.png",
+                "z":3
+        },
+        "feet": {
+                "image":"FEET_shoes_brown.png",
+                "z":3
+        },
+        "hands": {
+                 "image":"TORSO_leather_armor_bracers.png",
+                 "z":3
+        },
+        "arms": {
+                "image":"TORSO_leather_armor_shoulders.png",
+                "z":3
+        }
+   },
+   "bow": {
+      "head":{
+               "image":"HEAD_leather_armor_hat.png",
+               "z":3
+         },
+        "torso":{
+                "image":"TORSO_leather_armor_torso.png",
+                 "z":3
+        },
+        "belt":{
+                "image":"BELT_leather.png",
+                "z":3
+        },
+        "legs":{
+                "image":"LEGS_pants_greenish.png",
+                "z":3
+        },
+        "feet": {
+                "image":"FEET_shoes_brown.png",
+                "z":3
+        },
+        "hands": {
+                 "image":"TORSO_leather_armor_bracers.png",
+                 "z":3
+        },
+        "arms": {
+                "image":"TORSO_leather_armor_shoulders.png",
+                "z":3
+        } 
+   },
+   "hurt": {
+        "head":{
+               "image":"HEAD_leather_armor_hat.png",
+               "z":3
+         },
+        "torso":{
+                "image":"TORSO_leather_armor_torso.png",
+                 "z":3
+        },
+        "belt":{
+                "image":"BELT_leather.png",
+                "z":3
+        },
+        "legs":{
+                "image":"LEGS_pants_greenish.png",
+                "z":3
+        },
+        "feet": {
+                "image":"FEET_shoes_brown.png",
+                "z":3
+        },
+        "hands": {
+                 "image":"TORSO_leather_armor_bracers.png",
+                 "z":3
+        },
+        "arms": {
+                "image":"TORSO_leather_armor_shoulders.png",
+                "z":3
+        }
+   },
+   "spellcast": {
+        "head":{
+               "image":"HEAD_leather_armor_hat.png",
+               "z":3
+         },
+        "torso":{
+                "image":"TORSO_leather_armor_torso.png",
+                 "z":3
+        },
+        "belt":{
+                "image":"BELT_leather.png",
+                "z":3
+        },
+        "legs":{
+                "image":"LEGS_pants_greenish.png",
+                "z":3
+        },
+        "feet": {
+                "image":"FEET_shoes_brown.png",
+                "z":3
+        },
+        "hands": {
+                 "image":"TORSO_leather_armor_bracers.png",
+                 "z":3
+        },
+        "arms": {
+                "image":"TORSO_leather_armor_shoulders.png",
+                "z":3
+        }
+   }
+}

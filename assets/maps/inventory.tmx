@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="24" height="24" tilewidth="32" tileheight="32">
+ <properties>
+  <property name="name" value="inventory"/>
+ </properties>
+ <tileset firstgid="1" name="rpc_indoor_tileset" tilewidth="32" tileheight="32">
+  <image source="rpc_indoor_tileset.png" width="352" height="447"/>
+ </tileset>
+ <tileset firstgid="144" name="inventory" tilewidth="32" tileheight="32">
+  <image source="inventory.png" width="192" height="192"/>
+ </tileset>
+ <tileset firstgid="180" name="gas-valhalla" tilewidth="32" tileheight="32" spacing="2">
+  <image source="gas-valhalla.png" width="546" height="378"/>
+ </tileset>
+ <tileset firstgid="356" name="scrollsandblocks" tilewidth="32" tileheight="32">
+  <image source="scrollsandblocks.png" width="544" height="320"/>
+ </tileset>
+ <tileset firstgid="526" name="items_small" tilewidth="32" tileheight="32">
+  <image source="items_small.png" width="96" height="320"/>
+ </tileset>
+ <layer name="Ground" width="24" height="24">
+  <data encoding="base64" compression="zlib">
+   eJzt1LsOAVEQxvEzkqVw6VC4dChc3tEreAXPhAcQFJRE4RLfZE8x2WCOzdA4xS+z2TP7T06zC+fc8ktWsIFtxpryyXZ2L/pJIZ/QvhXZn1IY+b22J/szSh0Vsq/tPetrYj/2Y///+nMKI/va3q/+z3s4wQ3uBpNbB98/wwUS3KkKNYPJratvl/Bc9u860DWY3KpQ2i5CC+owhonB5FbbtxswhB70PzB4c8atETThAZNih/s=
+  </data>
+ </layer>
+ <layer name="Overlay" width="24" height="24">
+  <data encoding="base64" compression="zlib">
+   eJztz0kKwkAQheFuEa+ha72euFaX4sIY59kY51lvJDmIfyASF5p0YgIu8uCDhq56UELEnyJKzvshhciF6LB3LPn5r4a6806nhCiE6Ld3MqkQixGk/OWuT6lKd6fiofrWqQXo16W7k1WY+6U/H3O/ylzSn/Qn/fH2G857If2Z0t1RmXvFUj/BN1F2BUkDGkYY44Ajdthjhjma0LHBFi20McHUo7+DLgwscMMdF1yxwho99HHCGQMMYWIZzal/kydvnUsq
+  </data>
+ </layer>
+</map>

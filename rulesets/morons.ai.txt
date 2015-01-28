@@ -1,0 +1,20 @@
+Morons AI:
+
+AI has four states, making it pretty stupid.
+
+1. IDLE - Do nothing.
+2. SEEK_ENEMY - Seeks closest enemy.
+3. MOVE_INTO_RANGE - Moves next to specified target.
+4. ATTACK - Attacks target until it is dead.
+5. DEAD - Well, the final solution.
+
+IDLE state is changed to SEEK_ENEMY when battle starts.
+SEEK_ENEMY is changed back to IDLE when no enemies are left.
+SEEK_ENEMY is changed to MOVE_INTO_RANGE when enemy has been found.
+MOVE_INTO_RANGE is changed to SEEK_ENEMY if enemy is dead / missing.
+MOVE_INTO_RANGE is changed to ATTACK when enemy is right next to 
+AI in north, south, east or west tiles. Diagonal tiles are not checked.
+ATTACK is changed to SEEK_ENEMY if enemy is dead / missing.
+Any state is changed to DEAD when health drops into zero.
+
+

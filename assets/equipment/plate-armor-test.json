@@ -1,0 +1,39 @@
+{
+    "name":"plate_armor",
+    "walk": {
+        "head": {
+           "image":"HEAD_plate_armor_helmet.png",
+           "z":3
+         },               
+        "torso": {
+           "image":"TORSO_plate_armor_torso.png",
+           "z":3
+         },               
+        "belt": {
+           "image":"BELT_leather.png",
+           "z":3
+         },               
+        "legs":{
+           "image":"LEGS_plate_armor_pants.png",
+           "z":3
+         }
+    },
+    "thrust": {
+       "head": {
+           "image":"HEAD_plate_armor_helmet.png",
+           "z":3
+       },
+       "torso": {
+           "image":"TORSO_plate_armor_torso.png",
+           "z":3
+       },
+       "belt": {
+           "image":"BELT_leather.png",
+           "z":3
+       },
+       "legs": {
+           "image":"LEGS_plate_armor_pants.png",
+           "z":3
+       }
+    }
+}

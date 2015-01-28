@@ -1,0 +1,16 @@
+- create account
+- log in
+- purchase / sell character
+- purchase / sell item (weapon, armor, etc.)
+- get character data (NPC character statistics, skills, equipment, etc.)
+- train character (what skill/ability to train between fights)
+- rehab character (after a disastrous fight)
+- move character (param: direction)
+- attack (how do we handle ranged attacks?)
+- challenge team
+- accept / reject challenge
+- get ranking list
+- logout
+
+++ chat
+++ server broadcasts
